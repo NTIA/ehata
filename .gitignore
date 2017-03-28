@@ -1,0 +1,43 @@
+# Windows image file caches
+Thumbs.db
+ehthumbs.db
+
+# Folder config file
+Desktop.ini
+
+# Recycle Bin used on file shares
+$RECYCLE.BIN/
+
+# Windows Installer files
+*.cab
+*.msi
+*.msm
+*.msp
+
+# Visual Studio files project and build files
+*.user
+*.filters
+*.opensdf
+*.sdf
+*.suo
+*.pdb
+*.ilk
+*.exe
+*.lib
+*.exp
+*.dll
+*.tlog
+*.log
+*.obj
+*.idb
+*.db
+*.opendb
+*.lastbuildstate
+*genmod.f90
+*genmod.mod
+BuildLog.htm
+*.ipch
+bin/*
+win32/ehata/*.aps
+win32/ehata/Debug/*
+win32/ehata/Release/*
