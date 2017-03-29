@@ -6,7 +6,7 @@ This source repository contains a C language reference version of the eHata
 urban propagation model.  The model was developed by NTIA and used in NTIA 
 Technical Report [TR-15-517](https://www.its.bldrdoc.gov/publications/2805.aspx), 
 "3.5 GHz Exclusion Zone Analyses and Methodology," June 2015 
-[TR-15-519] for the 3.5 GHz exclusion zone analysis.
+[TR-15-517] for the 3.5 GHz exclusion zone analysis.
 
 ### Input Parameters
 
@@ -65,7 +65,7 @@ calculations.  Those values are as follows:
 ### Notes on Code Style
 
 * In general, variables follow the naming convention in which a single underscore
-denotes a subscript (sudo-LaTeX format), where a double underscore is followed
+denotes a subscript (pseudo-LaTeX format), where a double underscore is followed
 by the units, i.e. h_m__meter.
 * Variables are named to match their corresponding mathematical variables 
 in the underlying technical references, i.e., gamma_1.
