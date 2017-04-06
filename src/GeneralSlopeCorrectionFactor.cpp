@@ -37,7 +37,7 @@ float GeneralSlopeCorrectionFactor(float theta_m__mrad, float d__km)
         else if (d__km > 10.0 && d__km <= 30.0)
             // interpolate
             return theta_m__mrad * (emp1 + 0.05 * (d__km - 10.0) * (emp2 - emp1));
-        else //if (d__km > 30.0 .and.d__km < 60)
+        else
             // interpolate
             return theta_m__mrad * (emp2 + (d__km - 30.0) * (emp3 - emp2) / 30.0);
     }
