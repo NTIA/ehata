@@ -1,4 +1,4 @@
-#include "ehata.h"
+#include "../include/ehata.h"
 
 void FindHorizons(float *pfl, float gme, float d__meter, float h_1__meter,
     float h_2__meter, float *d_hzn__meter)

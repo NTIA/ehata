@@ -1,4 +1,4 @@
-#include "ehata.h"
+#include "../include/ehata.h"
 
 /*
 *   Description: The Extended-Hata Urban Propagation Model
@@ -44,7 +44,7 @@ void ExtendedHata_DBG(float pfl[], float f__mhz, float h_b__meter, float h_m__me
     PreprocessTerrainPath(pfl, h_b__meter, h_m__meter, interValues);
 
     float h_m_gnd__meter, d1_hzn__km, d2_hzn__km;
-    
+
     h_m_gnd__meter = pfl[2];
     interValues->h_m_eff__meter = h_m__meter + pfl[2] - interValues->h_avg__meter[0];
     interValues->h_b_eff__meter = h_b__meter + pfl[np + 2] - interValues->h_avg__meter[1];

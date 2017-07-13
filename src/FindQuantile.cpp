@@ -1,4 +1,4 @@
-#include "ehata.h"
+#include "../include/ehata.h"
 
 float FindQuantile(const int &nn, float *a, const int &ir)
 {

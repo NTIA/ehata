@@ -1,4 +1,4 @@
-#include "ehata.h"
+#include "../include/ehata.h"
 #include "math.h"
 
 /*
@@ -26,7 +26,7 @@ float FineRollingHillyTerrainCorectionFactor(InterValues *interValues, float h_m
         deltah_use = 10.0;
     else
         deltah_use = interValues->deltah__meter;
-        
+
     K_h = a + log10(deltah_use) * (b + c * log10(deltah_use));
 
     if (h_m_gnd__meter >= interValues->pfl10__meter)

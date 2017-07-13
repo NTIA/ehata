@@ -1,4 +1,4 @@
-#include "ehata.h"
+#include "../include/ehata.h"
 
 /*
 *   Description: Find the correction factor for mixed land-sea path

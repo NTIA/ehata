@@ -1,4 +1,4 @@
-#include "ehata.h"
+#include "../include/ehata.h"
 #include "math.h"
 
 /*

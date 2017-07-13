@@ -1,4 +1,4 @@
-#include "ehata.h"
+#include "../include/ehata.h"
 #include "math.h"
 
 void MedianBasicPropLoss(float f__mhz, float h_b__meter, float h_m__meter, float d__km, int enviro_code, float* plb_med__db, InterValues *interValues)
@@ -8,7 +8,7 @@ void MedianBasicPropLoss(float f__mhz, float h_b__meter, float h_m__meter, float
     double c = 1.0 / sqrt(eps*perm);
 
     //	Extend the frequency range to 3, 000 MHz.This is done by computing alpha_1, beta_1, and gamma_1
-    //		in Okumura et al.'s median reference attenuation equation in an urban environment.  
+    //		in Okumura et al.'s median reference attenuation equation in an urban environment.
     //	Solve the 3 simultanious equations :
     //		- A-4a: 22    dB @ 1500 MHz at 1 km
     //		- A-4b: 23.5  db @ 2000 MHZ at 1 km
@@ -93,19 +93,19 @@ void MedianBasicPropLoss(float f__mhz, float h_b__meter, float h_m__meter, float
         interValues->trace_code = interValues->trace_code | TRACE__METHOD_11;
     }
 
-    if (enviro_code == 23 || enviro_code == 24) 
+    if (enviro_code == 23 || enviro_code == 24)
     {
         *plb_med__db = plb_urban;
 
         interValues->trace_code = interValues->trace_code | TRACE__METHOD_12;
-    } 
-    else if (enviro_code == 22) 
+    }
+    else if (enviro_code == 22)
     {
         *plb_med__db = plb_urban - suburban_factor;
 
         interValues->trace_code = interValues->trace_code | TRACE__METHOD_13;
     }
-    else 
+    else
     {
         *plb_med__db = plb_urban - rural_factor;
 
