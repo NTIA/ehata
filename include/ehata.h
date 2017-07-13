@@ -6,7 +6,7 @@
 #define MIN(x, y) (((x) < (y)) ? (x) : (y))
 #endif
 #ifdef __linux__
-#define DLLEXPORT 
+#define DLLEXPORT extern "C"
 #define MAX(x, y) (((x) > (y)) ? (x) : (y))
 #define MIN(x, y) (((x) < (y)) ? (x) : (y))
 #endif
