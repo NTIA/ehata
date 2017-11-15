@@ -41,3 +41,4 @@ bin/*
 win32/ehata/*.aps
 win32/ehata/Debug/*
 win32/ehata/Release/*
+win32/ehata/x64/*
