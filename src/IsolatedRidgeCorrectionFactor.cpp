@@ -1,4 +1,4 @@
-#include "ehata.h"
+#include "../include/ehata.h"
 #include "math.h"
 
 /*
@@ -15,9 +15,9 @@ float IsolatedRidgeCorrectionFactor(float d1_hzn__km, float d2_hzn__km, float h_
 {
     float d_1__km[3] = { 15.0, 30.0, 60.0 };
     float d_2__km[9] = { 0.0, 1.0, 2.0, 3.0, 4.0, 5.0, 6.0, 7.0, 8.0 };
-    
+
     // points from Figure 31, Okumura
-    float curve_data[3][9] = 
+    float curve_data[3][9] =
             { {  4.0, -13.0, -17.5, -17.5, -15.0, -12.5, -10.0, -8.0, -6.0 },   // C curve : d1 <= 15 km
               { 12.0,  -8.5, -13.0, -12.0, -10.0,  -8.0,  -6.5, -5.0, -4.0 },   // B curve : d1 <= 30 km
               { 20.0,  -4.0,  -6.5,  -6.0,  -4.5,  -3.5,  -2.5, -2.0, -1.0 } }; // A curve : d1 <= 60 km

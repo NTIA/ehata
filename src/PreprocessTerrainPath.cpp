@@ -1,4 +1,4 @@
-#include "ehata.h"
+#include "../include/ehata.h"
 #include "math.h"
 
 void PreprocessTerrainPath(float *pfl, float h_b__meter, float h_m__meter, InterValues *interValues)
@@ -22,7 +22,7 @@ void PreprocessTerrainPath(float *pfl, float h_b__meter, float h_m__meter, Inter
 *                - pfl[1] = step size, in meters
 *                - pfl[i] = elevation above mean sea level, in meters
 *   Outputs:
-*       interValues->h_avg__meter : Average ground height of each terminal 
+*       interValues->h_avg__meter : Average ground height of each terminal
 *               above sea level, in meters
 *                - h_avg__meter[0] = terminal at start of pfl
 *                - h_avg__meter[1] = terminal at end of pfl
@@ -52,7 +52,7 @@ void FindAverageGroundHeight(float *pfl, InterValues *interValues)
         for (int i = i_start; i <= i_end; i++)
             sum = sum + pfl[i];
         interValues->h_avg__meter[0] = sum / (i_end - i_start + 1) * (d__km - 3.0) / 12.0;
-        
+
         i_start = 2;
         i_end = np + 2 - int(3.0 / xi);
         sum = 0.0;
@@ -174,7 +174,7 @@ void MobileTerrainSlope(float *pfl, InterValues *interValues)
     interValues->slope_min = 1.0e+31;
     float slope_five = 0.0;
     float slope;
-    
+
     float x1, x2;
     float pfl_segment[400] = { 0 };
 
@@ -185,7 +185,7 @@ void MobileTerrainSlope(float *pfl, InterValues *interValues)
         int npts = x2 / xi;
         pfl_segment[0] = npts;
         pfl_segment[1] = xi;
-        for (int i = 0; i < npts + 1; i++) 
+        for (int i = 0; i < npts + 1; i++)
             pfl_segment[i + 2] = pfl[i + 2];
 
         float z1 = 0, z2 = 0;
