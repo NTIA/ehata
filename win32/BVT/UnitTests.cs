@@ -1,4 +1,5 @@
-﻿using System;
+﻿using NTIA.Propagation.EHata;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Runtime.InteropServices;
@@ -69,16 +70,37 @@ namespace BVT
         [MemberData(nameof(TestDataGenerator.UnitTestData), MemberType = typeof(TestDataGenerator))]
         public void NativeTestsDBG(TestInput input)
         {
-            float plb = 0;
             float plb_dbg = 0;
             InterValues intervalues = new InterValues();
 
             float[] pfl = input.pfl.ToArray();
-
-            EHATA(pfl, input.f__mhz, input.h_b__meter, input.h_m__meter, input.enviro_code, ref plb);
+            
             EHATA_DBG(pfl, input.f__mhz, input.h_b__meter, input.h_m__meter, input.enviro_code, ref plb_dbg, ref intervalues);
 
-            Assert.Equal(plb, plb_dbg, PRECISION);
+            Assert.Equal(input.expected_plb, plb_dbg, PRECISION);
+        }
+
+        [Theory]
+        [MemberData(nameof(TestDataGenerator.UnitTestData), MemberType = typeof(TestDataGenerator))]
+        public void ManagedTests(TestInput input)
+        {
+            float plb;
+
+            EHata.Invoke(input.pfl, input.f__mhz, input.h_b__meter, input.h_m__meter, input.enviro_code, out plb);
+
+            Assert.Equal(input.expected_plb, plb, PRECISION);
+        }
+
+        [Theory]
+        [MemberData(nameof(TestDataGenerator.UnitTestData), MemberType = typeof(TestDataGenerator))]
+        public void ManagedTestsDBG(TestInput input)
+        {
+            float plb_dbg;
+            NTIA.Propagation.EHata.InterValues intervalues;
+            
+            EHata.Invoke(input.pfl, input.f__mhz, input.h_b__meter, input.h_m__meter, input.enviro_code, out plb_dbg, out intervalues);
+
+            Assert.Equal(input.expected_plb, plb_dbg, PRECISION);
         }
     }
 }

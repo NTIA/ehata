@@ -7,8 +7,11 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "ehata", "ehata\ehata.vcxpro
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BVT", "BVT\BVT.csproj", "{DDD4DE42-5913-469A-BDD3-1C083DD98733}"
 	ProjectSection(ProjectDependencies) = postProject
+		{EC6E026A-0CA1-40AD-810B-A886A62D2679} = {EC6E026A-0CA1-40AD-810B-A886A62D2679}
 		{51232DC9-751B-401A-9C8C-BD21E54F7F07} = {51232DC9-751B-401A-9C8C-BD21E54F7F07}
 	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NTIA.Propagation.EHata", "NTIA.Propagation.EHata\NTIA.Propagation.EHata.csproj", "{EC6E026A-0CA1-40AD-810B-A886A62D2679}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -52,6 +55,22 @@ Global
 		{DDD4DE42-5913-469A-BDD3-1C083DD98733}.Release|Win32.Build.0 = Release|Any CPU
 		{DDD4DE42-5913-469A-BDD3-1C083DD98733}.Release|x64.ActiveCfg = Release|Any CPU
 		{DDD4DE42-5913-469A-BDD3-1C083DD98733}.Release|x64.Build.0 = Release|Any CPU
+		{EC6E026A-0CA1-40AD-810B-A886A62D2679}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EC6E026A-0CA1-40AD-810B-A886A62D2679}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EC6E026A-0CA1-40AD-810B-A886A62D2679}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
+		{EC6E026A-0CA1-40AD-810B-A886A62D2679}.Debug|Mixed Platforms.Build.0 = Debug|Any CPU
+		{EC6E026A-0CA1-40AD-810B-A886A62D2679}.Debug|Win32.ActiveCfg = Debug|Any CPU
+		{EC6E026A-0CA1-40AD-810B-A886A62D2679}.Debug|Win32.Build.0 = Debug|Any CPU
+		{EC6E026A-0CA1-40AD-810B-A886A62D2679}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{EC6E026A-0CA1-40AD-810B-A886A62D2679}.Debug|x64.Build.0 = Debug|Any CPU
+		{EC6E026A-0CA1-40AD-810B-A886A62D2679}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EC6E026A-0CA1-40AD-810B-A886A62D2679}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EC6E026A-0CA1-40AD-810B-A886A62D2679}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
+		{EC6E026A-0CA1-40AD-810B-A886A62D2679}.Release|Mixed Platforms.Build.0 = Release|Any CPU
+		{EC6E026A-0CA1-40AD-810B-A886A62D2679}.Release|Win32.ActiveCfg = Release|Any CPU
+		{EC6E026A-0CA1-40AD-810B-A886A62D2679}.Release|Win32.Build.0 = Release|Any CPU
+		{EC6E026A-0CA1-40AD-810B-A886A62D2679}.Release|x64.ActiveCfg = Release|Any CPU
+		{EC6E026A-0CA1-40AD-810B-A886A62D2679}.Release|x64.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

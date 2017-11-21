@@ -45,3 +45,4 @@ win32/ehata/x64/*
 build/Debug/*
 win32/BVT/obj/*
 win32/packages/*
+win32/NTIA.Propagation.EHata/obj/*
