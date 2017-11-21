@@ -5,6 +5,11 @@ VisualStudioVersion = 14.0.25420.1
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "ehata", "ehata\ehata.vcxproj", "{51232DC9-751B-401A-9C8C-BD21E54F7F07}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BVT", "BVT\BVT.csproj", "{DDD4DE42-5913-469A-BDD3-1C083DD98733}"
+	ProjectSection(ProjectDependencies) = postProject
+		{51232DC9-751B-401A-9C8C-BD21E54F7F07} = {51232DC9-751B-401A-9C8C-BD21E54F7F07}
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -31,6 +36,22 @@ Global
 		{51232DC9-751B-401A-9C8C-BD21E54F7F07}.Release|Win32.Build.0 = Release|Win32
 		{51232DC9-751B-401A-9C8C-BD21E54F7F07}.Release|x64.ActiveCfg = Release|x64
 		{51232DC9-751B-401A-9C8C-BD21E54F7F07}.Release|x64.Build.0 = Release|x64
+		{DDD4DE42-5913-469A-BDD3-1C083DD98733}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DDD4DE42-5913-469A-BDD3-1C083DD98733}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DDD4DE42-5913-469A-BDD3-1C083DD98733}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
+		{DDD4DE42-5913-469A-BDD3-1C083DD98733}.Debug|Mixed Platforms.Build.0 = Debug|Any CPU
+		{DDD4DE42-5913-469A-BDD3-1C083DD98733}.Debug|Win32.ActiveCfg = Debug|Any CPU
+		{DDD4DE42-5913-469A-BDD3-1C083DD98733}.Debug|Win32.Build.0 = Debug|Any CPU
+		{DDD4DE42-5913-469A-BDD3-1C083DD98733}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{DDD4DE42-5913-469A-BDD3-1C083DD98733}.Debug|x64.Build.0 = Debug|Any CPU
+		{DDD4DE42-5913-469A-BDD3-1C083DD98733}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DDD4DE42-5913-469A-BDD3-1C083DD98733}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DDD4DE42-5913-469A-BDD3-1C083DD98733}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
+		{DDD4DE42-5913-469A-BDD3-1C083DD98733}.Release|Mixed Platforms.Build.0 = Release|Any CPU
+		{DDD4DE42-5913-469A-BDD3-1C083DD98733}.Release|Win32.ActiveCfg = Release|Any CPU
+		{DDD4DE42-5913-469A-BDD3-1C083DD98733}.Release|Win32.Build.0 = Release|Any CPU
+		{DDD4DE42-5913-469A-BDD3-1C083DD98733}.Release|x64.ActiveCfg = Release|Any CPU
+		{DDD4DE42-5913-469A-BDD3-1C083DD98733}.Release|x64.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -1,0 +1,245 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="..\packages\xunit.runner.visualstudio.2.3.1\build\net20\xunit.runner.visualstudio.props" Condition="Exists('..\packages\xunit.runner.visualstudio.2.3.1\build\net20\xunit.runner.visualstudio.props')" />
+  <Import Project="..\packages\xunit.runner.console.2.3.1\build\xunit.runner.console.props" Condition="Exists('..\packages\xunit.runner.console.2.3.1\build\xunit.runner.console.props')" />
+  <Import Project="..\packages\xunit.core.2.3.1\build\xunit.core.props" Condition="Exists('..\packages\xunit.core.2.3.1\build\xunit.core.props')" />
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{DDD4DE42-5913-469A-BDD3-1C083DD98733}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>BVT</RootNamespace>
+    <AssemblyName>BVT</AssemblyName>
+    <TargetFrameworkVersion>v4.6.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>..\..\build\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <PlatformTarget>x86</PlatformTarget>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>..\..\build\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+    <Reference Include="xunit.abstractions, Version=2.0.0.0, Culture=neutral, PublicKeyToken=8d05b1bb7a6fdb6c, processorArchitecture=MSIL">
+      <HintPath>..\packages\xunit.abstractions.2.0.1\lib\net35\xunit.abstractions.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="xunit.assert, Version=2.3.1.3858, Culture=neutral, PublicKeyToken=8d05b1bb7a6fdb6c, processorArchitecture=MSIL">
+      <HintPath>..\packages\xunit.assert.2.3.1\lib\netstandard1.1\xunit.assert.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="xunit.core, Version=2.3.1.3858, Culture=neutral, PublicKeyToken=8d05b1bb7a6fdb6c, processorArchitecture=MSIL">
+      <HintPath>..\packages\xunit.extensibility.core.2.3.1\lib\netstandard1.1\xunit.core.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="xunit.execution.desktop, Version=2.3.1.3858, Culture=neutral, PublicKeyToken=8d05b1bb7a6fdb6c, processorArchitecture=MSIL">
+      <HintPath>..\packages\xunit.extensibility.execution.2.3.1\lib\net452\xunit.execution.desktop.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="TestInput.cs" />
+    <Compile Include="TestDataGenerator.cs" />
+    <Compile Include="UnitTests.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="..\..\test\pfls\53.%28From_-0.6_145.1_to_-0.9036_144.7592%29_terrain_profile.csv">
+      <Link>Assets\pfls\53.%28From_-0.6_145.1_to_-0.9036_144.7592%29_terrain_profile.csv</Link>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="..\..\test\pfls\53.%28From_-1.0_152.1_to_-0.9788_152.129%29_terrain_profile.csv">
+      <Link>Assets\pfls\53.%28From_-1.0_152.1_to_-0.9788_152.129%29_terrain_profile.csv</Link>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="..\..\test\pfls\53.%28From_-23.701_133.88_to_-24.13_134.37%29_terrain_profile.csv">
+      <Link>Assets\pfls\53.%28From_-23.701_133.88_to_-24.13_134.37%29_terrain_profile.csv</Link>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="..\..\test\pfls\53.%28From_29.6173_-89.8196_to_30.069_-89.827%29_terrain_profile.csv">
+      <Link>Assets\pfls\53.%28From_29.6173_-89.8196_to_30.069_-89.827%29_terrain_profile.csv</Link>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="..\..\test\pfls\53.%28From_29.7522_-95.3524_to_29.2736_-94.8085%29_terrain_profile.csv">
+      <Link>Assets\pfls\53.%28From_29.7522_-95.3524_to_29.2736_-94.8085%29_terrain_profile.csv</Link>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="..\..\test\pfls\53.%28From_31.8523_-110.8708_to_31.7743_-110.6295%29_terrain_profile.csv">
+      <Link>Assets\pfls\53.%28From_31.8523_-110.8708_to_31.7743_-110.6295%29_terrain_profile.csv</Link>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="..\..\test\pfls\53.%28From_32.6777_-117.244_to_32.6999_-117.248%29_terrain_profile.csv">
+      <Link>Assets\pfls\53.%28From_32.6777_-117.244_to_32.6999_-117.248%29_terrain_profile.csv</Link>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="..\..\test\pfls\53.%28From_32.6777_-117.244_to_32.7441_-117.2344%29_terrain_profile.csv">
+      <Link>Assets\pfls\53.%28From_32.6777_-117.244_to_32.7441_-117.2344%29_terrain_profile.csv</Link>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="..\..\test\pfls\53.%28From_32.6777_-117.244_to_32.7989_-117.2358%29_terrain_profile.csv">
+      <Link>Assets\pfls\53.%28From_32.6777_-117.244_to_32.7989_-117.2358%29_terrain_profile.csv</Link>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="..\..\test\pfls\53.%28From_32.76_-97.33_to_32.78_-96.8%29_terrain_profile.csv">
+      <Link>Assets\pfls\53.%28From_32.76_-97.33_to_32.78_-96.8%29_terrain_profile.csv</Link>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="..\..\test\pfls\53.%28From_32.78_-96.8_to_32.76_-97.33%29_terrain_profile.csv">
+      <Link>Assets\pfls\53.%28From_32.78_-96.8_to_32.76_-97.33%29_terrain_profile.csv</Link>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="..\..\test\pfls\53.%28From_33.83_-116.53_to_33.856_-116.521%29_terrain_profile.csv">
+      <Link>Assets\pfls\53.%28From_33.83_-116.53_to_33.856_-116.521%29_terrain_profile.csv</Link>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="..\..\test\pfls\53.%28From_33.83_-116.53_to_33.942_-116.465%29_terrain_profile.csv">
+      <Link>Assets\pfls\53.%28From_33.83_-116.53_to_33.942_-116.465%29_terrain_profile.csv</Link>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="..\..\test\pfls\53.%28From_33.83_-116.53_to_34.12_-116.43%29_terrain_profile.csv">
+      <Link>Assets\pfls\53.%28From_33.83_-116.53_to_34.12_-116.43%29_terrain_profile.csv</Link>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="..\..\test\pfls\53.%28From_34.12_-116.43_to_33.83_-116.53%29_terrain_profile.csv">
+      <Link>Assets\pfls\53.%28From_34.12_-116.43_to_33.83_-116.53%29_terrain_profile.csv</Link>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="..\..\test\pfls\53.%28From_35.596_-82.552_to_35.961_-83.921%29_terrain_profile.csv">
+      <Link>Assets\pfls\53.%28From_35.596_-82.552_to_35.961_-83.921%29_terrain_profile.csv</Link>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="..\..\test\pfls\53.%28From_36.573_-115.674_to_36.597_-118.056%29_terrain_profile.csv">
+      <Link>Assets\pfls\53.%28From_36.573_-115.674_to_36.597_-118.056%29_terrain_profile.csv</Link>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="..\..\test\pfls\53.%28From_37.4356_-78.8047_to_36.7581_-78.88%29_terrain_profile.csv">
+      <Link>Assets\pfls\53.%28From_37.4356_-78.8047_to_36.7581_-78.88%29_terrain_profile.csv</Link>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="..\..\test\pfls\53.%28From_39.2467_-105.8253_to_39.91_-105.4917%29_terrain_profile.csv">
+      <Link>Assets\pfls\53.%28From_39.2467_-105.8253_to_39.91_-105.4917%29_terrain_profile.csv</Link>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="..\..\test\pfls\53.%28From_39.2975_-76.6157_to_38.8895_-77.0353%29_terrain_profile.csv">
+      <Link>Assets\pfls\53.%28From_39.2975_-76.6157_to_38.8895_-77.0353%29_terrain_profile.csv</Link>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="..\..\test\pfls\53.%28From_39.739_-104.985_to_35.087_-106.619%29_terrain_profile.csv">
+      <Link>Assets\pfls\53.%28From_39.739_-104.985_to_35.087_-106.619%29_terrain_profile.csv</Link>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="..\..\test\pfls\53.%28From_39.7533_-105.0189_to_39.7449_-104.9845%29_terrain_profile.csv">
+      <Link>Assets\pfls\53.%28From_39.7533_-105.0189_to_39.7449_-104.9845%29_terrain_profile.csv</Link>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="..\..\test\pfls\53.%28From_40.0283_-105.2522_to_39.9372_-105.1682%29_terrain_profile.csv">
+      <Link>Assets\pfls\53.%28From_40.0283_-105.2522_to_39.9372_-105.1682%29_terrain_profile.csv</Link>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="..\..\test\pfls\53.%28From_40.131_-105.241_to_40.135_-105.241%29_terrain_profile.csv">
+      <Link>Assets\pfls\53.%28From_40.131_-105.241_to_40.135_-105.241%29_terrain_profile.csv</Link>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="..\..\test\pfls\53.%28From_40.148_-105.232_to_39.993_-105.273%29_terrain_profile.csv">
+      <Link>Assets\pfls\53.%28From_40.148_-105.232_to_39.993_-105.273%29_terrain_profile.csv</Link>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="..\..\test\pfls\53.%28From_40.2938_-74.8707_to_40.2181_-74.7575%29_terrain_profile.csv">
+      <Link>Assets\pfls\53.%28From_40.2938_-74.8707_to_40.2181_-74.7575%29_terrain_profile.csv</Link>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="..\..\test\pfls\53.%28From_40.3197_-104.8183_to_40.0939_-105.1255%29_terrain_profile.csv">
+      <Link>Assets\pfls\53.%28From_40.3197_-104.8183_to_40.0939_-105.1255%29_terrain_profile.csv</Link>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="..\..\test\pfls\53.%28From_40.9332_-112.5117_to_40.8502_-112.1835%29_terrain_profile.csv">
+      <Link>Assets\pfls\53.%28From_40.9332_-112.5117_to_40.8502_-112.1835%29_terrain_profile.csv</Link>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="..\..\test\pfls\53.%28From_41.1555_-72.2418_to_41.3552_-72.0994%29_terrain_profile.csv">
+      <Link>Assets\pfls\53.%28From_41.1555_-72.2418_to_41.3552_-72.0994%29_terrain_profile.csv</Link>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="..\..\test\pfls\53.%28From_41.3824_-73.4479_to_40.6893_-74.0445%29_terrain_profile.csv">
+      <Link>Assets\pfls\53.%28From_41.3824_-73.4479_to_40.6893_-74.0445%29_terrain_profile.csv</Link>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="..\..\test\pfls\53.%28From_42.295_-85.588_to_42.578_-87.822%29_terrain_profile.csv">
+      <Link>Assets\pfls\53.%28From_42.295_-85.588_to_42.578_-87.822%29_terrain_profile.csv</Link>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="..\..\test\pfls\53.%28From_42.8751_-78.8766_to_43.12_-79.1167%29_terrain_profile.csv">
+      <Link>Assets\pfls\53.%28From_42.8751_-78.8766_to_43.12_-79.1167%29_terrain_profile.csv</Link>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="..\..\test\pfls\53.%28From_43.072_-70.762_to_43.654_-70.263%29_terrain_profile.csv">
+      <Link>Assets\pfls\53.%28From_43.072_-70.762_to_43.654_-70.263%29_terrain_profile.csv</Link>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="..\..\test\pfls\53.%28From_44.5839_-104.7242_to_44.6783_-104.602%29_terrain_profile.csv">
+      <Link>Assets\pfls\53.%28From_44.5839_-104.7242_to_44.6783_-104.602%29_terrain_profile.csv</Link>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="..\..\test\pfls\53.%28From_44.6783_-104.602_to_44.5839_-104.7242%29_terrain_profile.csv">
+      <Link>Assets\pfls\53.%28From_44.6783_-104.602_to_44.5839_-104.7242%29_terrain_profile.csv</Link>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="..\..\test\pfls\53.%28From_44.995_-101.237_to_44.368_-100.351%29_terrain_profile.csv">
+      <Link>Assets\pfls\53.%28From_44.995_-101.237_to_44.368_-100.351%29_terrain_profile.csv</Link>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="..\..\test\test-inputs.csv">
+      <Link>Assets\test-inputs.csv</Link>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Analyzer Include="..\packages\xunit.analyzers.0.7.0\analyzers\dotnet\cs\xunit.analyzers.dll" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{82A7F48D-3B50-4B1E-B82E-3ADA8210C358}" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\xunit.core.2.3.1\build\xunit.core.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\xunit.core.2.3.1\build\xunit.core.props'))" />
+    <Error Condition="!Exists('..\packages\xunit.core.2.3.1\build\xunit.core.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\xunit.core.2.3.1\build\xunit.core.targets'))" />
+    <Error Condition="!Exists('..\packages\xunit.runner.console.2.3.1\build\xunit.runner.console.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\xunit.runner.console.2.3.1\build\xunit.runner.console.props'))" />
+    <Error Condition="!Exists('..\packages\xunit.runner.visualstudio.2.3.1\build\net20\xunit.runner.visualstudio.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\xunit.runner.visualstudio.2.3.1\build\net20\xunit.runner.visualstudio.props'))" />
+  </Target>
+  <Import Project="..\packages\xunit.core.2.3.1\build\xunit.core.targets" Condition="Exists('..\packages\xunit.core.2.3.1\build\xunit.core.targets')" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
