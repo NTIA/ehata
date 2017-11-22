@@ -10,7 +10,7 @@ Technical Report [TR-15-517](https://www.its.bldrdoc.gov/publications/2805.aspx)
 
 ### Input Parameters
 
-* **float** pfl[] : A terrain profile line.  EHata uses the ITM-method of formatting
+* **float** pfl[] : A terrain profile line, from the mobile to the base station.  EHata uses the ITM-method of formatting
 terrain information, in that:
   * **float** pfl[0] : Number of points + 1
   * **float** pfl[1] : Resolution, in meters

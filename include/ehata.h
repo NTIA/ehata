@@ -50,7 +50,7 @@ DLLEXPORT void ExtendedHata(float pfl[], float f__mhz, float h_b__meter, float h
 DLLEXPORT void ExtendedHata_DBG(float pfl[], float f__mhz, float h_b__meter, float h_m__meter, int environment, float *plb, InterValues *interValues);
 
 // private
-void FindAverageGroundHeight(float *pfl, InterValues *interValues);
+void FindAverageGroundHeight(float *pfl, float h_m__meter, float h_b__meter, InterValues *interValues);
 void MobileTerrainSlope(float *pfl, InterValues *interValues);
 void LeastSquares(float *pfl_segment, float x1, float x2, float *z0, float *zn);
 void AnalyzeSeaPath(float* pfl, InterValues *interValues);

@@ -3,7 +3,7 @@
 
 void PreprocessTerrainPath(float *pfl, float h_b__meter, float h_m__meter, InterValues *interValues)
 {
-    FindAverageGroundHeight(pfl, interValues);
+    FindAverageGroundHeight(pfl, h_m__meter, h_b__meter, interValues);
 
     ComputeTerrainStatistics(pfl, interValues);
 
@@ -21,6 +21,8 @@ void PreprocessTerrainPath(float *pfl, float h_b__meter, float h_m__meter, Inter
 *                - pfl[0] = number of terrain points + 1
 *                - pfl[1] = step size, in meters
 *                - pfl[i] = elevation above mean sea level, in meters
+*       h_m__meter : height of the mobile, in meters
+*       h_b__meter : height of the base station, in meters
 *   Outputs:
 *       interValues->h_avg__meter : Average ground height of each terminal
 *               above sea level, in meters
@@ -29,7 +31,7 @@ void PreprocessTerrainPath(float *pfl, float h_b__meter, float h_m__meter, Inter
 *       interValues->trace_code : Debug trace flag to document code
 *               execution path for tracing and testing purposes
 */
-void FindAverageGroundHeight(float *pfl, InterValues *interValues)
+void FindAverageGroundHeight(float *pfl, float h_m__meter, float h_b__meter, InterValues *interValues)
 {
     int np = int(pfl[0]);
     float xi = pfl[1] * 0.001;      // step size of the profile points, in km
@@ -51,14 +53,14 @@ void FindAverageGroundHeight(float *pfl, InterValues *interValues)
         i_end = np + 2;
         for (int i = i_start; i <= i_end; i++)
             sum = sum + pfl[i];
-        interValues->h_avg__meter[0] = sum / (i_end - i_start + 1) * (d__km - 3.0) / 12.0;
+        interValues->h_avg__meter[0] = h_m__meter + (d__km - 3.0) / 12.0 * (pfl[2] - sum / (i_end - i_start + 1)) ;
 
         i_start = 2;
         i_end = np + 2 - int(3.0 / xi);
         sum = 0.0;
         for (int i = i_start; i <= i_end; i++)
             sum = sum + pfl[i];
-        interValues->h_avg__meter[1] = sum / (i_end - i_start + 1) * (d__km - 3.0) / 12.0;
+        interValues->h_avg__meter[1] = h_b__meter + (d__km - 3.0) / 12.0 * (pfl[np + 2] - sum / (i_end - i_start + 1));
 
         interValues->trace_code = interValues->trace_code | TRACE__METHOD_01;
     }

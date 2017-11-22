@@ -53,7 +53,7 @@ namespace NTIA.Propagation.EHata
         /// <summary>
         /// The Extended Hata (eHata) Urban Propagation Model
         /// </summary>
-        /// <param name="pfl">An ITM-formatted terrain profile</param>
+        /// <param name="pfl">An ITM-formatted terrain profile, from the mobile to the base station</param>
         /// <param name="f__mhz">The frequency, in MHz</param>
         /// <param name="h_b__meter">The height of the base station, in meters</param>
         /// <param name="h_m__meter">The height of the mobile, in meters</param>
@@ -69,7 +69,7 @@ namespace NTIA.Propagation.EHata
         /// <summary>
         /// The Extended Hata (eHata) Urban Propagation Model
         /// </summary>
-        /// <param name="pfl">An ITM-formatted terrain profile</param>
+        /// <param name="pfl">An ITM-formatted terrain profile, from the mobile to the base station</param>
         /// <param name="f__mhz">The frequency, in MHz</param>
         /// <param name="h_b__meter">The height of the base station, in meters</param>
         /// <param name="h_m__meter">The height of the mobile, in meters</param>
