@@ -86,7 +86,7 @@ namespace BVT
         {
             float plb;
 
-            EHata.Invoke(input.pfl, input.f__mhz, input.h_b__meter, input.h_m__meter, input.enviro_code, out plb);
+            EHata.Invoke(input.pfl.ToArray(), input.f__mhz, input.h_b__meter, input.h_m__meter, input.enviro_code, out plb);
 
             Assert.Equal(input.expected_plb, plb, PRECISION);
         }
@@ -98,7 +98,7 @@ namespace BVT
             float plb_dbg;
             NTIA.Propagation.EHata.InterValues intervalues;
             
-            EHata.Invoke(input.pfl, input.f__mhz, input.h_b__meter, input.h_m__meter, input.enviro_code, out plb_dbg, out intervalues);
+            EHata.Invoke(input.pfl.ToArray(), input.f__mhz, input.h_b__meter, input.h_m__meter, input.enviro_code, out plb_dbg, out intervalues);
 
             Assert.Equal(input.expected_plb, plb_dbg, PRECISION);
         }
