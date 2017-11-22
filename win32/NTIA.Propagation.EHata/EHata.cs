@@ -50,6 +50,15 @@ namespace NTIA.Propagation.EHata
         [DllImport("ehata.dll", CallingConvention = CallingConvention.Cdecl, CharSet = CharSet.Ansi, EntryPoint = "ExtendedHata_DBG")]
         private static extern void EHATA_DBG(float[] pfl, float f__mhz, float h_b__meter, float h_m__meter, int enviro_code, ref float plb, ref InterValues intervalues);
 
+        /// <summary>
+        /// The Extended Hata (eHata) Urban Propagation Model
+        /// </summary>
+        /// <param name="pfl">An ITM-formatted terrain profile</param>
+        /// <param name="f__mhz">The frequency, in MHz</param>
+        /// <param name="h_b__meter">The height of the base station, in meters</param>
+        /// <param name="h_m__meter">The height of the mobile, in meters</param>
+        /// <param name="enviro_code">The NLCD environment code</param>
+        /// <param name="plb">The path loss, in dB</param>
         public static void Invoke(List<float> pfl, float f__mhz, float h_b__meter, float h_m__meter, int enviro_code, out float plb)
         {
             plb = 0;
@@ -58,6 +67,16 @@ namespace NTIA.Propagation.EHata
             EHATA(pfl_array, f__mhz, h_b__meter, h_m__meter, enviro_code, ref plb);
         }
 
+        /// <summary>
+        /// The Extended Hata (eHata) Urban Propagation Model
+        /// </summary>
+        /// <param name="pfl">An ITM-formatted terrain profile</param>
+        /// <param name="f__mhz">The frequency, in MHz</param>
+        /// <param name="h_b__meter">The height of the base station, in meters</param>
+        /// <param name="h_m__meter">The height of the mobile, in meters</param>
+        /// <param name="enviro_code">The NLCD environment code</param>
+        /// <param name="plb">The path loss, in dB</param>
+        /// <param name="interValues">A data structure containing intermediate values from the eHata calculations</param>
         public static void Invoke(List<float> pfl, float f__mhz, float h_b__meter, float h_m__meter, int enviro_code, out float plb, out InterValues interValues)
         {
             plb = 0;
