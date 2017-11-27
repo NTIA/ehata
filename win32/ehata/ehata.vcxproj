@@ -37,6 +37,7 @@
     <ClCompile Include="..\..\src\MedianRollingHillyTerrainCorrectionFactor.cpp" />
     <ClCompile Include="..\..\src\MixedPathCorrectionFactor.cpp" />
     <ClCompile Include="..\..\src\PreprocessTerrainPath.cpp" />
+    <ClCompile Include="..\..\src\Variability.cpp" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <ProjectGuid>{51232DC9-751B-401A-9C8C-BD21E54F7F07}</ProjectGuid>

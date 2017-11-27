@@ -11,14 +11,15 @@
 *       h_b__meter : height of the base station, in meters
 *       h_m__meter : height of the mobile, in meters
 *       enviro_code : environmental code
+*       reliability : the percent not exceeded of the signal
 *   Outputs:
 *       plb : path loss, in dB
 */
 void ExtendedHata(float pfl[], float f__mhz, float h_b__meter, float h_m__meter,
-    int enviro_code, float *plb)
+    int enviro_code, float reliability, float *plb)
 {
     InterValues interValues;
-    ExtendedHata_DBG(pfl, f__mhz, h_b__meter, h_m__meter, enviro_code, plb, &interValues);
+    ExtendedHata_DBG(pfl, f__mhz, h_b__meter, h_m__meter, enviro_code, reliability, plb, &interValues);
 }
 
 /*
@@ -32,12 +33,13 @@ void ExtendedHata(float pfl[], float f__mhz, float h_b__meter, float h_m__meter,
 *       h_b__meter : height of the base station, in meters
 *       h_m__meter : height of the mobile, in meters
 *       enviro_code : environmental code
+*       reliability : the percent not exceeded of the signal
 *   Outputs:
 *       plb : path loss, in dB
 *       interValues : data structure containing intermediate calculated values
 */
 void ExtendedHata_DBG(float pfl[], float f__mhz, float h_b__meter, float h_m__meter,
-    int enviro_code, float *plb, InterValues *interValues)
+    int enviro_code, float reliability, float *plb, InterValues *interValues)
 {
     int np = int(pfl[0]);
 
@@ -61,10 +63,12 @@ void ExtendedHata_DBG(float pfl[], float f__mhz, float h_b__meter, float h_m__me
     float plb_median__db;
     MedianBasicPropLoss(f__mhz, interValues->h_b_eff__meter, interValues->h_m_eff__meter, interValues->d__km, enviro_code, &plb_median__db, interValues);
 
+    float plb__db = Variability(plb_median__db, f__mhz, enviro_code, reliability);
+
     // apply correction factors based on path
     if (interValues->single_horizon)
     {
-        *plb = plb_median__db - IsolatedRidgeCorrectionFactor(d1_hzn__km, d2_hzn__km, interValues->hedge_tilda)
+        *plb = plb__db - IsolatedRidgeCorrectionFactor(d1_hzn__km, d2_hzn__km, interValues->hedge_tilda)
             - MixedPathCorrectionFactor(interValues->d__km, interValues);
 
         interValues->trace_code = interValues->trace_code | TRACE__METHOD_17;
@@ -72,7 +76,7 @@ void ExtendedHata_DBG(float pfl[], float f__mhz, float h_b__meter, float h_m__me
     else // two horizons
     {
         interValues->trace_code = interValues->trace_code | TRACE__METHOD_18;
-        *plb = plb_median__db - MedianRollingHillyTerrainCorrectionFactor(interValues->deltah__meter)
+        *plb = plb__db - MedianRollingHillyTerrainCorrectionFactor(interValues->deltah__meter)
             - FineRollingHillyTerrainCorectionFactor(interValues, h_m_gnd__meter)
             - GeneralSlopeCorrectionFactor(interValues->theta_m__mrad, interValues->d__km)
             - MixedPathCorrectionFactor(interValues->d__km, interValues);

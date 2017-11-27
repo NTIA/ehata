@@ -46,8 +46,8 @@ struct InterValues
 #define PI 3.14159265358979323846
 
 // public
-DLLEXPORT void ExtendedHata(float pfl[], float f__mhz, float h_b__meter, float h_m__meter, int environment, float *plb);
-DLLEXPORT void ExtendedHata_DBG(float pfl[], float f__mhz, float h_b__meter, float h_m__meter, int environment, float *plb, InterValues *interValues);
+DLLEXPORT void ExtendedHata(float pfl[], float f__mhz, float h_b__meter, float h_m__meter, int environment, float reliability, float *plb);
+DLLEXPORT void ExtendedHata_DBG(float pfl[], float f__mhz, float h_b__meter, float h_m__meter, int environment, float reliability, float *plb, InterValues *interValues);
 
 // private
 void FindAverageGroundHeight(float *pfl, float h_m__meter, float h_b__meter, InterValues *interValues);
@@ -66,6 +66,10 @@ float MixedPathCorrectionFactor(float d__km, InterValues *interValues);
 float MedianRollingHillyTerrainCorrectionFactor(float deltah);
 void MedianBasicPropLoss(float f__mhz, float h_b__meter, float h_m__meter, float d__km, int environment, float* plb_med__db, InterValues *interValues);
 float IsolatedRidgeCorrectionFactor(float d1_hzn__km, float d2_hzn__km, float h_edge__meter);
+float Variability(float plb_med__db, float f__mhz, int enviro_code, float reliability);
+float Sigma_u(float f__mhz);
+float Sigma_r(float f__mhz);
+float ierf(float q);
 
 // Trace Constants
 #define TRACE__METHOD_00    0x00000001;
