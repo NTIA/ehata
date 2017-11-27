@@ -19,6 +19,7 @@ terrain information, in that:
 * **float** h_m__meter : The height of the mobile, in meters.
 * **float** h_b__meter : The height of the base station, in meters.
 * **int** enviro_code : The NLCD environment code
+* **float** reliability : The quantile percent not exceeded of the signal, range (0, 1)
 
 ### Output Parameters
 * **float** plb: The path loss, in dB.
@@ -27,9 +28,9 @@ values from the eHata calculations.
 
 ### Function Signatures
 * **void** ExtendedHata(**float** pfl[], **float** f__mhz, **float** h_b__meter, 
-**float** h_m__meter, **int** enviro_code, **float** *plb)
+**float** h_m__meter, **int** enviro_code, **float** reliability, **float** *plb)
 * **void** ExtendedHata_DBG(**float** pfl[], **float** f__mhz, **float** h_b__meter, 
-**float** h_m__meter, **int** enviro_code, **float** *plb, 
+**float** h_m__meter, **int** enviro_code, **float** reliability, **float** *plb, 
 **InterValues** *interValues)
 
 ### Dependencies
