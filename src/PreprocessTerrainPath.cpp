@@ -15,7 +15,7 @@ void PreprocessTerrainPath(float *pfl, float h_b__meter, float h_m__meter, Inter
 }
 
 /*
-*   Description: Find the average ground height at each terminal
+*   Description: Find the average ground height at each terminal and set the effective terminal heights
 *   Inputs:
 *       pfl : Terrain profile line with:
 *                - pfl[0] = number of terrain points + 1
@@ -45,6 +45,9 @@ void FindAverageGroundHeight(float *pfl, float h_m__meter, float h_b__meter, Int
         interValues->h_avg__meter[0] = pfl[2];
         interValues->h_avg__meter[1] = pfl[np + 2];
 
+        interValues->h_m_eff__meter = h_m__meter;
+        interValues->h_b_eff__meter = h_b__meter;
+
         interValues->trace_code = interValues->trace_code | TRACE__METHOD_00;
     }
     else if (3.0 <= d__km && d__km <= 15.0)
@@ -53,14 +56,17 @@ void FindAverageGroundHeight(float *pfl, float h_m__meter, float h_b__meter, Int
         i_end = np + 2;
         for (int i = i_start; i <= i_end; i++)
             sum = sum + pfl[i];
-        interValues->h_avg__meter[0] = h_m__meter + (d__km - 3.0) / 12.0 * (pfl[2] - sum / (i_end - i_start + 1)) ;
+        interValues->h_avg__meter[0] = (d__km - 3.0) / 12.0 * (pfl[2] - sum / (i_end - i_start + 1)) ;
 
         i_start = 2;
         i_end = np + 2 - int(3.0 / xi);
         sum = 0.0;
         for (int i = i_start; i <= i_end; i++)
             sum = sum + pfl[i];
-        interValues->h_avg__meter[1] = h_b__meter + (d__km - 3.0) / 12.0 * (pfl[np + 2] - sum / (i_end - i_start + 1));
+        interValues->h_avg__meter[1] = (d__km - 3.0) / 12.0 * (pfl[np + 2] - sum / (i_end - i_start + 1));
+
+        interValues->h_m_eff__meter = h_m__meter + interValues->h_avg__meter[0];
+        interValues->h_b_eff__meter = h_b__meter + interValues->h_avg__meter[1];
 
         interValues->trace_code = interValues->trace_code | TRACE__METHOD_01;
     }
@@ -70,14 +76,17 @@ void FindAverageGroundHeight(float *pfl, float h_m__meter, float h_b__meter, Int
         i_end = 2 + int(15.0 / xi);
         for (int i = i_start; i <= i_end; i++)
             sum = sum + pfl[i];
-        interValues->h_avg__meter[0] = sum / (i_end - i_start + 1);
+        interValues->h_avg__meter[0] = pfl[2] - sum / (i_end - i_start + 1);
 
         i_start = np + 2 - int(15.0 / xi);
         i_end = np + 2 - int(3.0 / xi);
         sum = 0.0;
         for (int i = i_start; i <= i_end; i++)
             sum = sum + pfl[i];
-        interValues->h_avg__meter[1] = sum / (i_end - i_start + 1);
+        interValues->h_avg__meter[1] = pfl[np + 2] - sum / (i_end - i_start + 1);
+
+        interValues->h_m_eff__meter = h_m__meter + interValues->h_avg__meter[0];
+        interValues->h_b_eff__meter = h_b__meter + interValues->h_avg__meter[1];
 
         interValues->trace_code = interValues->trace_code | TRACE__METHOD_02;
     }
