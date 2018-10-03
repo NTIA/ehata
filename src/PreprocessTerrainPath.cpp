@@ -135,7 +135,7 @@ void ComputeTerrainStatistics(double *pfl, InterValues *interValues)
     }
 
     // create a copy of the 10 km path at the mobile, or the whole path (if less than 10 km)
-    double pfl_segment[400];
+    double *pfl_segment = new double[i_end - i_start + 1];
     for (int i = i_start; i <= i_end; i++)
         pfl_segment[i - i_start] = pfl[i];
 
@@ -158,6 +158,8 @@ void ComputeTerrainStatistics(double *pfl, InterValues *interValues)
         interValues->pfl90__meter = interValues->pfl90__meter * factor;
         interValues->deltah__meter = interValues->deltah__meter * factor;
     }
+
+    delete[] pfl_segment;
 }
 
 /*
@@ -187,7 +189,7 @@ void MobileTerrainSlope(double *pfl, InterValues *interValues)
     double slope;
 
     double x1, x2;
-    double pfl_segment[400] = { 0 };
+    double *pfl_segment = new double[int(10000/xi) + 3];
 
     x1 = 0.0;
     x2 = 5000.0;
@@ -232,6 +234,8 @@ void MobileTerrainSlope(double *pfl, InterValues *interValues)
             interValues->trace_code = interValues->trace_code | TRACE__METHOD_07;
         }
     }
+
+    delete[] pfl_segment;
 }
 
 /*
