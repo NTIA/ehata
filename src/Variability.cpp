@@ -1,10 +1,10 @@
 #include "../include/ehata.h"
 #include "math.h"
 
-float Variability(float plb_med__db, float f__mhz, int enviro_code, float reliability)
+double Variability(double plb_med__db, double f__mhz, int enviro_code, double reliability)
 {
-    float sigma;
-    float plb__db;
+    double sigma;
+    double plb__db;
 
     if (enviro_code == 23 || enviro_code == 24)
     {
@@ -25,9 +25,9 @@ float Variability(float plb_med__db, float f__mhz, int enviro_code, float reliab
 *   Inputs:
 *       f__mhz : frequency, in MHz
 *   Return:
-*       [float] : sigma_u
+*       [double] : sigma_u
 */
-float Sigma_u(float f__mhz)
+double Sigma_u(double f__mhz)
 {
     // Given the location variability standard deviations from Okumura et al,
     //      - sigma_u = 7.1 @ 1500 MHz
@@ -46,14 +46,14 @@ float Sigma_u(float f__mhz)
 *   Inputs:
 *       f__mhz : frequency, in MHz
 *   Return:
-*       [float] : sigma_r
+*       [double] : sigma_r
 */
-float Sigma_r(float f__mhz)
+double Sigma_r(double f__mhz)
 {
     return Sigma_u(f__mhz) + 2;
 }
 
-float ierf(float q)
+double ierf(double q)
 {
     // this approximate inverse error function code is borrowed from the Irregular Terrain Model (ITM)
 

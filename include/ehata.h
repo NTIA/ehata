@@ -13,32 +13,32 @@
 
 struct InterValues
 {
-    float d_bp__km;
-    float att_1km;
-    float att_100km;
+    double d_bp__km;
+    double att_1km;
+    double att_100km;
 
-    float h_b_eff__meter;
-    float h_m_eff__meter;
+    double h_b_eff__meter;
+    double h_m_eff__meter;
 
     // Terrain Stats
-    float pfl10__meter;
-    float pfl50__meter;
-    float pfl90__meter;
-    float deltah__meter;
+    double pfl10__meter;
+    double pfl50__meter;
+    double pfl90__meter;
+    double deltah__meter;
 
     // Path Geometry
-    float d__km;
-    float d_hzn__meter[2];
-    float h_avg__meter[2];
-    float theta_m__mrad;
-    float beta;
+    double d__km;
+    double d_hzn__meter[2];
+    double h_avg__meter[2];
+    double theta_m__mrad;
+    double beta;
     int iend_ov_sea;
-    float hedge_tilda;
+    double hedge_tilda;
     bool single_horizon;
 
     // Misc
-    float slope_max;
-    float slope_min;
+    double slope_max;
+    double slope_min;
 
     int trace_code;
 };
@@ -46,30 +46,30 @@ struct InterValues
 #define PI 3.14159265358979323846
 
 // public
-DLLEXPORT void ExtendedHata(float pfl[], float f__mhz, float h_b__meter, float h_m__meter, int environment, float reliability, float *plb);
-DLLEXPORT void ExtendedHata_DBG(float pfl[], float f__mhz, float h_b__meter, float h_m__meter, int environment, float reliability, float *plb, InterValues *interValues);
+DLLEXPORT void ExtendedHata(double pfl[], double f__mhz, double h_b__meter, double h_m__meter, int environment, double reliability, double *plb);
+DLLEXPORT void ExtendedHata_DBG(double pfl[], double f__mhz, double h_b__meter, double h_m__meter, int environment, double reliability, double *plb, InterValues *interValues);
 
 // private
-void FindAverageGroundHeight(float *pfl, float h_m__meter, float h_b__meter, InterValues *interValues);
-void MobileTerrainSlope(float *pfl, InterValues *interValues);
-void LeastSquares(float *pfl_segment, float x1, float x2, float *z0, float *zn);
-void AnalyzeSeaPath(float* pfl, InterValues *interValues);
-void FindHorizons(float *pfl, float gme, float d__meter, float h_1__meter, float h_2__meter, float *d_hzn__meter);
-void SingleHorizonTest(float *pfl, float h_m__meter, float h_b__meter, InterValues *interValues);
-void ComputeTerrainStatistics(float *pfl, InterValues *interValues);
-float FindQuantile(const int &nn, float *apfl, const int &ir);
-void PreprocessTerrainPath(float *pfl, float h_b__meter, float h_m__meter, InterValues *interValues);
-float AverageTerrainHeight(float *pfl);
-float GeneralSlopeCorrectionFactor(float theta_m__mrad, float d__km);
-float FineRollingHillyTerrainCorectionFactor(InterValues *interValues, float h_m_gnd__meter);
-float MixedPathCorrectionFactor(float d__km, InterValues *interValues);
-float MedianRollingHillyTerrainCorrectionFactor(float deltah);
-void MedianBasicPropLoss(float f__mhz, float h_b__meter, float h_m__meter, float d__km, int environment, float* plb_med__db, InterValues *interValues);
-float IsolatedRidgeCorrectionFactor(float d1_hzn__km, float d2_hzn__km, float h_edge__meter);
-float Variability(float plb_med__db, float f__mhz, int enviro_code, float reliability);
-float Sigma_u(float f__mhz);
-float Sigma_r(float f__mhz);
-float ierf(float q);
+void FindAverageGroundHeight(double *pfl, double h_m__meter, double h_b__meter, InterValues *interValues);
+void MobileTerrainSlope(double *pfl, InterValues *interValues);
+void LeastSquares(double *pfl_segment, double x1, double x2, double *z0, double *zn);
+void AnalyzeSeaPath(double* pfl, InterValues *interValues);
+void FindHorizons(double *pfl, double gme, double d__meter, double h_1__meter, double h_2__meter, double *d_hzn__meter);
+void SingleHorizonTest(double *pfl, double h_m__meter, double h_b__meter, InterValues *interValues);
+void ComputeTerrainStatistics(double *pfl, InterValues *interValues);
+double FindQuantile(const int &nn, double *apfl, const int &ir);
+void PreprocessTerrainPath(double *pfl, double h_b__meter, double h_m__meter, InterValues *interValues);
+double AverageTerrainHeight(double *pfl);
+double GeneralSlopeCorrectionFactor(double theta_m__mrad, double d__km);
+double FineRollingHillyTerrainCorectionFactor(InterValues *interValues, double h_m_gnd__meter);
+double MixedPathCorrectionFactor(double d__km, InterValues *interValues);
+double MedianRollingHillyTerrainCorrectionFactor(double deltah);
+void MedianBasicPropLoss(double f__mhz, double h_b__meter, double h_m__meter, double d__km, int environment, double* plb_med__db, InterValues *interValues);
+double IsolatedRidgeCorrectionFactor(double d1_hzn__km, double d2_hzn__km, double h_edge__meter);
+double Variability(double plb_med__db, double f__mhz, int enviro_code, double reliability);
+double Sigma_u(double f__mhz);
+double Sigma_r(double f__mhz);
+double ierf(double q);
 
 // Trace Constants
 #define TRACE__METHOD_00    0x00000001;

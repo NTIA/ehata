@@ -15,8 +15,8 @@
 *   Outputs:
 *       plb : path loss, in dB
 */
-void ExtendedHata(float pfl[], float f__mhz, float h_b__meter, float h_m__meter,
-    int enviro_code, float reliability, float *plb)
+void ExtendedHata(double pfl[], double f__mhz, double h_b__meter, double h_m__meter,
+    int enviro_code, double reliability, double *plb)
 {
     InterValues interValues;
     ExtendedHata_DBG(pfl, f__mhz, h_b__meter, h_m__meter, enviro_code, reliability, plb, &interValues);
@@ -38,14 +38,14 @@ void ExtendedHata(float pfl[], float f__mhz, float h_b__meter, float h_m__meter,
 *       plb : path loss, in dB
 *       interValues : data structure containing intermediate calculated values
 */
-void ExtendedHata_DBG(float pfl[], float f__mhz, float h_b__meter, float h_m__meter,
-    int enviro_code, float reliability, float *plb, InterValues *interValues)
+void ExtendedHata_DBG(double pfl[], double f__mhz, double h_b__meter, double h_m__meter,
+    int enviro_code, double reliability, double *plb, InterValues *interValues)
 {
     int np = int(pfl[0]);
 
     PreprocessTerrainPath(pfl, h_b__meter, h_m__meter, interValues);
 
-    float h_m_gnd__meter, d1_hzn__km, d2_hzn__km;
+    double h_m_gnd__meter, d1_hzn__km, d2_hzn__km;
 
     h_m_gnd__meter = pfl[2];
     d1_hzn__km = interValues->d_hzn__meter[1] * 0.001;
@@ -58,10 +58,10 @@ void ExtendedHata_DBG(float pfl[], float f__mhz, float h_b__meter, float h_m__me
     if (interValues->h_b_eff__meter > 200.0) interValues->h_b_eff__meter = 200.0;
 
     interValues->d__km = pfl[0] * pfl[1] / 1000;
-    float plb_median__db;
+    double plb_median__db;
     MedianBasicPropLoss(f__mhz, interValues->h_b_eff__meter, interValues->h_m_eff__meter, interValues->d__km, enviro_code, &plb_median__db, interValues);
 
-    float plb__db = Variability(plb_median__db, f__mhz, enviro_code, reliability);
+    double plb__db = Variability(plb_median__db, f__mhz, enviro_code, reliability);
 
     // apply correction factors based on path
     if (interValues->single_horizon)

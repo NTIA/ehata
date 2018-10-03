@@ -1,7 +1,7 @@
 #include "../include/ehata.h"
 #include "math.h"
 
-void MedianBasicPropLoss(float f__mhz, float h_b__meter, float h_m__meter, float d__km, int enviro_code, float* plb_med__db, InterValues *interValues)
+void MedianBasicPropLoss(double f__mhz, double h_b__meter, double h_m__meter, double d__km, int enviro_code, double* plb_med__db, InterValues *interValues)
 {
     double perm = 4.0e-7 * PI;
     double eps = 8.854e-12;

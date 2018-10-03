@@ -1,7 +1,7 @@
 #include "../include/ehata.h"
 #include "math.h"
 
-void PreprocessTerrainPath(float *pfl, float h_b__meter, float h_m__meter, InterValues *interValues)
+void PreprocessTerrainPath(double *pfl, double h_b__meter, double h_m__meter, InterValues *interValues)
 {
     FindAverageGroundHeight(pfl, h_m__meter, h_b__meter, interValues);
 
@@ -31,14 +31,14 @@ void PreprocessTerrainPath(float *pfl, float h_b__meter, float h_m__meter, Inter
 *       interValues->trace_code : Debug trace flag to document code
 *               execution path for tracing and testing purposes
 */
-void FindAverageGroundHeight(float *pfl, float h_m__meter, float h_b__meter, InterValues *interValues)
+void FindAverageGroundHeight(double *pfl, double h_m__meter, double h_b__meter, InterValues *interValues)
 {
     int np = int(pfl[0]);
-    float xi = pfl[1] * 0.001;      // step size of the profile points, in km
-    float d__km = np * xi;          // path distance, in km
+    double xi = pfl[1] * 0.001;      // step size of the profile points, in km
+    double d__km = np * xi;          // path distance, in km
 
     int i_start, i_end;
-    float sum = 0.0;
+    double sum = 0.0;
 
     if (d__km < 3.0)
     {
@@ -108,11 +108,11 @@ void FindAverageGroundHeight(float *pfl, float h_m__meter, float h_b__meter, Int
 *       interValues->trace_code : debug trace flag to document code
 *               execution path for tracing and testing purposes
 */
-void ComputeTerrainStatistics(float *pfl, InterValues *interValues)
+void ComputeTerrainStatistics(double *pfl, InterValues *interValues)
 {
     int np = int(pfl[0]);
-    float xi = pfl[1] * 0.001;      // step size of the profile points, in km
-    float d__km = np * xi;          // path distance, in km
+    double xi = pfl[1] * 0.001;      // step size of the profile points, in km
+    double d__km = np * xi;          // path distance, in km
 
     int i_start, i_end;
 
@@ -135,7 +135,7 @@ void ComputeTerrainStatistics(float *pfl, InterValues *interValues)
     }
 
     // create a copy of the 10 km path at the mobile, or the whole path (if less than 10 km)
-    float pfl_segment[400];
+    double pfl_segment[400];
     for (int i = i_start; i <= i_end; i++)
         pfl_segment[i - i_start] = pfl[i];
 
@@ -152,7 +152,7 @@ void ComputeTerrainStatistics(float *pfl, InterValues *interValues)
     //  for the terrain irrgularity is computed" [TR-15-517]
     if (d__km < 10.0)
     {
-        float factor = (1.0 - 0.8*exp(-0.2)) / (1.0 - 0.8*exp(-0.02 * d__km));
+        double factor = (1.0 - 0.8*exp(-0.2)) / (1.0 - 0.8*exp(-0.02 * d__km));
         interValues->pfl10__meter = interValues->pfl10__meter * factor;
         interValues->pfl50__meter = interValues->pfl50__meter * factor;
         interValues->pfl90__meter = interValues->pfl90__meter * factor;
@@ -174,20 +174,20 @@ void ComputeTerrainStatistics(float *pfl, InterValues *interValues)
 *       interValues->trace_code : debug trace flag to document code
 *               execution path for tracing and testing purposes
 */
-void MobileTerrainSlope(float *pfl, InterValues *interValues)
+void MobileTerrainSlope(double *pfl, InterValues *interValues)
 {
     int np = int(pfl[0]);           // number of points
-    float xi = pfl[1];              // step size of the profile points, in meter
-    float d__meter = np * xi;
+    double xi = pfl[1];              // step size of the profile points, in meter
+    double d__meter = np * xi;
 
     // find the mean slope of the terrain in the vicinity of the mobile station
     interValues->slope_max = -1.0e+31;
     interValues->slope_min = 1.0e+31;
-    float slope_five = 0.0;
-    float slope;
+    double slope_five = 0.0;
+    double slope;
 
-    float x1, x2;
-    float pfl_segment[400] = { 0 };
+    double x1, x2;
+    double pfl_segment[400] = { 0 };
 
     x1 = 0.0;
     x2 = 5000.0;
@@ -199,7 +199,7 @@ void MobileTerrainSlope(float *pfl, InterValues *interValues)
         for (int i = 0; i < npts + 1; i++)
             pfl_segment[i + 2] = pfl[i + 2];
 
-        float z1 = 0, z2 = 0;
+        double z1 = 0, z2 = 0;
         LeastSquares(pfl_segment, x1, x2, &z1, &z2);
 
         // flip the sign to match the Okumura et al.convention
@@ -248,7 +248,7 @@ void MobileTerrainSlope(float *pfl, InterValues *interValues)
 *                0  : high end
 *               -1  : equal amounts on both ends
 */
-void AnalyzeSeaPath(float* pfl, InterValues *interValues)
+void AnalyzeSeaPath(double* pfl, InterValues *interValues)
 {
     int np = int(pfl[0]);
 
@@ -271,7 +271,7 @@ void AnalyzeSeaPath(float* pfl, InterValues *interValues)
         }
     }
 
-    interValues->beta = float(sea_cnt) / float(np + 1);
+    interValues->beta = double(sea_cnt) / double(np + 1);
 
     if (low_cnt > high_cnt)
         interValues->iend_ov_sea = 1;
@@ -289,11 +289,11 @@ void AnalyzeSeaPath(float* pfl, InterValues *interValues)
 *                - pfl[1] = step size, in meters
 *                - pfl[i] = elevation above mean sea level, in meters
 *   Return:
-*       [float] : average terrain height, in meters
+*       [double] : average terrain height, in meters
 */
-float AverageTerrainHeight(float *pfl)
+double AverageTerrainHeight(double *pfl)
 {
-    float h_gnd__meter = 0.0;
+    double h_gnd__meter = 0.0;
     int np = (int)pfl[0];
 
     for (int i = 1; i <= np + 1; i++)
@@ -321,29 +321,29 @@ float AverageTerrainHeight(float *pfl)
 *       interValues->trace_code : debug trace flag to document code
 *               execution path for tracing and testing purposes
 */
-void SingleHorizonTest(float *pfl, float h_m__meter, float h_b__meter, InterValues *interValues)
+void SingleHorizonTest(double *pfl, double h_m__meter, double h_b__meter, InterValues *interValues)
 {
     int np = int(pfl[0]);           // number of points
-    float xi = pfl[1];              // step size of the profile points, in meter
-    float d__meter = np * xi;
+    double xi = pfl[1];              // step size of the profile points, in meter
+    double d__meter = np * xi;
 
-    float h_gnd__meter = AverageTerrainHeight(pfl);
+    double h_gnd__meter = AverageTerrainHeight(pfl);
 
-    float en0 = 301.0f;
-    float ens = 0;
+    double en0 = 301.0f;
+    double ens = 0;
     if (h_gnd__meter == 0)
         ens = en0;
     else
         ens = en0 * exp(-h_gnd__meter / 9460);
-    float gma = 157e-9f;
-    float gme = gma * (1 - 0.04665 * exp(ens / 179.3));
+    double gma = 157e-9f;
+    double gme = gma * (1 - 0.04665 * exp(ens / 179.3));
 
     FindHorizons(pfl, gme, d__meter, h_m__meter, h_b__meter, interValues->d_hzn__meter);
 
-    float a = interValues->d_hzn__meter[0];
-    float b = interValues->d_hzn__meter[1];
-    float d_diff__meter = d__meter - interValues->d_hzn__meter[0] - interValues->d_hzn__meter[1];
-    float q = MAX(d_diff__meter - 0.5*pfl[1], 0) - MAX(-d_diff__meter - 0.5*pfl[1], 0);
+    double a = interValues->d_hzn__meter[0];
+    double b = interValues->d_hzn__meter[1];
+    double d_diff__meter = d__meter - interValues->d_hzn__meter[0] - interValues->d_hzn__meter[1];
+    double q = MAX(d_diff__meter - 0.5*pfl[1], 0) - MAX(-d_diff__meter - 0.5*pfl[1], 0);
     if (q != 0.0)
     {
         interValues->single_horizon = false;
@@ -354,7 +354,7 @@ void SingleHorizonTest(float *pfl, float h_m__meter, float h_b__meter, InterValu
         interValues->single_horizon = true;
         int iedge = interValues->d_hzn__meter[0] / pfl[1];
 
-        float za, zb;
+        double za, zb;
         za = h_b__meter + pfl[np + 2];
         zb = h_m__meter + pfl[2];
         interValues->hedge_tilda = pfl[iedge + 2] - (za*interValues->d_hzn__meter[1] + zb*interValues->d_hzn__meter[0]) / d__meter + 0.5*gme*interValues->d_hzn__meter[0] * interValues->d_hzn__meter[1];
