@@ -12,7 +12,7 @@
 *   Return:
 *       [double] : correction factor
 */
-double FineRollingHillyTerrainCorectionFactor(InterValues *interValues, double h_m_gnd__meter)
+double FineRollingHillyTerrainCorrectionFactor(InterValues *interValues, double h_m_gnd__meter)
 {
     double a = -11.728795;
     double b = 15.544272;

@@ -75,7 +75,7 @@ void ExtendedHata_DBG(double pfl[], double f__mhz, double h_b__meter, double h_m
     {
         interValues->trace_code = interValues->trace_code | TRACE__METHOD_18;
         *plb = plb__db - MedianRollingHillyTerrainCorrectionFactor(interValues->deltah__meter)
-            - FineRollingHillyTerrainCorectionFactor(interValues, h_m_gnd__meter)
+            - FineRollingHillyTerrainCorrectionFactor(interValues, h_m_gnd__meter)
             - GeneralSlopeCorrectionFactor(interValues->theta_m__mrad, interValues->d__km)
             - MixedPathCorrectionFactor(interValues->d__km, interValues);
     }

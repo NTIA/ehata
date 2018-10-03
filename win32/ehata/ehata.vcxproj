@@ -29,7 +29,7 @@
     <ClCompile Include="..\..\src\ExtendedHata.cpp" />
     <ClCompile Include="..\..\src\FindHorizons.cpp" />
     <ClCompile Include="..\..\src\FindQuantile.cpp" />
-    <ClCompile Include="..\..\src\FineRollingHillyTerrainCorectionFactor.cpp" />
+    <ClCompile Include="..\..\src\FineRollingHillyTerrainCorrectionFactor.cpp" />
     <ClCompile Include="..\..\src\GeneralSlopeCorrectionFactor.cpp" />
     <ClCompile Include="..\..\src\IsolatedRidgeCorrectionFactor.cpp" />
     <ClCompile Include="..\..\src\LeastSquares.cpp" />

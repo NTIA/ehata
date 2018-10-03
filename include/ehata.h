@@ -61,7 +61,7 @@ double FindQuantile(const int &nn, double *apfl, const int &ir);
 void PreprocessTerrainPath(double *pfl, double h_b__meter, double h_m__meter, InterValues *interValues);
 double AverageTerrainHeight(double *pfl);
 double GeneralSlopeCorrectionFactor(double theta_m__mrad, double d__km);
-double FineRollingHillyTerrainCorectionFactor(InterValues *interValues, double h_m_gnd__meter);
+double FineRollingHillyTerrainCorrectionFactor(InterValues *interValues, double h_m_gnd__meter);
 double MixedPathCorrectionFactor(double d__km, InterValues *interValues);
 double MedianRollingHillyTerrainCorrectionFactor(double deltah);
 void MedianBasicPropLoss(double f__mhz, double h_b__meter, double h_m__meter, double d__km, int environment, double* plb_med__db, InterValues *interValues);
