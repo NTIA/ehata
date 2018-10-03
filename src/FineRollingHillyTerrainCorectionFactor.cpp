@@ -23,7 +23,7 @@ double FineRollingHillyTerrainCorectionFactor(InterValues *interValues, double h
 
     // deltaH must be at least 10 meters
     if (interValues->deltah__meter < 10.0)
-        deltah_use = 10.0;
+        return 0;
     else
         deltah_use = interValues->deltah__meter;
 
