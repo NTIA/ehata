@@ -68,12 +68,9 @@ void ExtendedHata_DBG(double pfl[], double f__mhz, double h_b__meter, double h_m
     {
         *plb = plb__db - IsolatedRidgeCorrectionFactor(d1_hzn__km, d2_hzn__km, interValues->hedge_tilda)
             - MixedPathCorrectionFactor(interValues->d__km, interValues);
-
-        interValues->trace_code = interValues->trace_code | TRACE__METHOD_17;
     }
     else // two horizons
     {
-        interValues->trace_code = interValues->trace_code | TRACE__METHOD_18;
         *plb = plb__db - MedianRollingHillyTerrainCorrectionFactor(interValues->deltah__meter)
             - FineRollingHillyTerrainCorrectionFactor(interValues, h_m_gnd__meter)
             - GeneralSlopeCorrectionFactor(interValues->theta_m__mrad, interValues->d__km)

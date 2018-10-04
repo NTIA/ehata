@@ -30,12 +30,7 @@ double MixedPathCorrectionFactor(double d__km, InterValues *interValues)
                              { 0.0, 4.25, 6.25, 9.2, 10.5, 11.75, 13.0,   14.0,  14.25, 15.0 } };
 
     if (interValues->beta == 0.0)
-    {
-        interValues->trace_code = interValues->trace_code | TRACE__METHOD_15;
         return 0.0;         // no sea path, so correction factor is 0 dB
-    }
-
-    interValues->trace_code = interValues->trace_code | TRACE__METHOD_16;
 
     int ist_30 = 0;
     while (interValues->beta > beta_30[ist_30 + 1] && ist_30 < 10)

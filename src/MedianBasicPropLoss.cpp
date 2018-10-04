@@ -81,34 +81,14 @@ void MedianBasicPropLoss(double f__mhz, double h_b__meter, double h_m__meter, do
     //     the original Hata power law exponent and the refitted Hata intercept are used.  Else the model uses
     //     the long distance power law exponent and the 100km basic median attenuation curve fit
     if (d__km <= interValues->d_bp__km)
-    {
         plb_urban = alpha_1 + term1 + term2 + terma + (44.9 - 6.55*log10(h_b__meter))*log10(d__km);
-
-        interValues->trace_code = interValues->trace_code | TRACE__METHOD_10;
-    }
     else
-    {
         plb_urban = interValues->att_100km + htg_hb_ref + term2 + htg_hm_ref + terma - 20*n_h + 10.0*n_h*log10(d__km) + 20.0*log10(2.0*wnmh*sr_d);
 
-        interValues->trace_code = interValues->trace_code | TRACE__METHOD_11;
-    }
-
     if (enviro_code == 23 || enviro_code == 24)
-    {
         *plb_med__db = plb_urban;
-
-        interValues->trace_code = interValues->trace_code | TRACE__METHOD_12;
-    }
     else if (enviro_code == 22)
-    {
         *plb_med__db = plb_urban - suburban_factor;
-
-        interValues->trace_code = interValues->trace_code | TRACE__METHOD_13;
-    }
     else
-    {
         *plb_med__db = plb_urban - rural_factor;
-
-        interValues->trace_code = interValues->trace_code | TRACE__METHOD_14;
-    }
 }

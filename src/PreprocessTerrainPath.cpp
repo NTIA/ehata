@@ -47,8 +47,6 @@ void FindAverageGroundHeight(double *pfl, double h_m__meter, double h_b__meter, 
 
         interValues->h_m_eff__meter = h_m__meter;
         interValues->h_b_eff__meter = h_b__meter;
-
-        interValues->trace_code = interValues->trace_code | TRACE__METHOD_00;
     }
     else if (3.0 <= d__km && d__km <= 15.0)
     {
@@ -67,8 +65,6 @@ void FindAverageGroundHeight(double *pfl, double h_m__meter, double h_b__meter, 
 
         interValues->h_m_eff__meter = h_m__meter + interValues->h_avg__meter[0];
         interValues->h_b_eff__meter = h_b__meter + interValues->h_avg__meter[1];
-
-        interValues->trace_code = interValues->trace_code | TRACE__METHOD_01;
     }
     else // d__km > 15.0
     {
@@ -87,8 +83,6 @@ void FindAverageGroundHeight(double *pfl, double h_m__meter, double h_b__meter, 
 
         interValues->h_m_eff__meter = h_m__meter + interValues->h_avg__meter[0];
         interValues->h_b_eff__meter = h_b__meter + interValues->h_avg__meter[1];
-
-        interValues->trace_code = interValues->trace_code | TRACE__METHOD_02;
     }
 }
 
@@ -123,15 +117,11 @@ void ComputeTerrainStatistics(double *pfl, InterValues *interValues)
     {
         i_start = 2;
         i_end = np + 2;
-
-        interValues->trace_code = interValues->trace_code | TRACE__METHOD_03;
     }
     else // use 10 km adjacent to the mobile
     {
         i_start = 2;
         i_end = 2 + int(10.0 / xi);
-
-        interValues->trace_code = interValues->trace_code | TRACE__METHOD_04;
     }
 
     // create a copy of the 10 km path at the mobile, or the whole path (if less than 10 km)
@@ -216,23 +206,13 @@ void MobileTerrainSlope(double *pfl, InterValues *interValues)
     if (d__meter <= 5000.0 || interValues->slope_max * interValues->slope_min < 0.0)
     {
         interValues->theta_m__mrad = slope_five;
-
-        interValues->trace_code = interValues->trace_code | TRACE__METHOD_05;
     }
     else
     {
         if (interValues->slope_max >= 0.0)
-        {
             interValues->theta_m__mrad = interValues->slope_max;
-
-            interValues->trace_code = interValues->trace_code | TRACE__METHOD_06;
-        }
         else
-        {
             interValues->theta_m__mrad = interValues->slope_min;
-
-            interValues->trace_code = interValues->trace_code | TRACE__METHOD_07;
-        }
     }
 
     delete[] pfl_segment;
@@ -351,7 +331,6 @@ void SingleHorizonTest(double *pfl, double h_m__meter, double h_b__meter, InterV
     if (q != 0.0)
     {
         interValues->single_horizon = false;
-        interValues->trace_code = interValues->trace_code | TRACE__METHOD_08;
     }
     else
     {
@@ -362,8 +341,6 @@ void SingleHorizonTest(double *pfl, double h_m__meter, double h_b__meter, InterV
         za = h_b__meter + pfl[np + 2];
         zb = h_m__meter + pfl[2];
         interValues->hedge_tilda = pfl[iedge + 2] - (za*interValues->d_hzn__meter[1] + zb*interValues->d_hzn__meter[0]) / d__meter + 0.5*gme*interValues->d_hzn__meter[0] * interValues->d_hzn__meter[1];
-
-        interValues->trace_code = interValues->trace_code | TRACE__METHOD_09;
 
         if (interValues->hedge_tilda < 0.0)
             interValues->hedge_tilda = 0.0;

@@ -39,8 +39,6 @@ struct InterValues
     // Misc
     double slope_max;
     double slope_min;
-
-    int trace_code;
 };
 
 #define PI 3.14159265358979323846
@@ -71,24 +69,3 @@ double Sigma_u(double f__mhz);
 double Sigma_r(double f__mhz);
 double ierf(double q);
 
-// Trace Constants
-#define TRACE__METHOD_00    0x00000001;
-#define TRACE__METHOD_01    0x00000002;
-#define TRACE__METHOD_02    0x00000004;
-#define TRACE__METHOD_03    0x00000008;
-#define TRACE__METHOD_04    0x00000010;
-#define TRACE__METHOD_05    0x00000020;
-#define TRACE__METHOD_06    0x00000040;
-#define TRACE__METHOD_07    0x00000080;
-#define TRACE__METHOD_08    0x00000100;
-#define TRACE__METHOD_09    0x00000200;
-#define TRACE__METHOD_10    0x00000400;
-#define TRACE__METHOD_11    0x00000800;
-#define TRACE__METHOD_12    0x00001000;
-#define TRACE__METHOD_13    0x00002000;
-#define TRACE__METHOD_14    0x00004000;
-#define TRACE__METHOD_15    0x00008000;
-#define TRACE__METHOD_16    0x00010000;
-#define TRACE__METHOD_17    0x00020000;
-#define TRACE__METHOD_18    0x00040000;
-#define TRACE__METHOD_19    0x00080000;
