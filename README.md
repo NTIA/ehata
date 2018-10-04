@@ -61,7 +61,6 @@ calculations.  Those values are as follows:
 * **bool** single_horizon: Flag for specifying number of horizons.
 * **float** slope_max: Intermediate value when calculating the mobile terrain slope.
 * **float** slope_min: Intermediate value when calculating the mobile terrain slope.
-* **int** trace_code: Trace flag showing program flow.
 
 ### Notes on Code Style
 
@@ -94,18 +93,6 @@ This project was developed and built using Microsoft Visual Studio
 project file is configured to build with Runtime Library set to 
 Multi-threaded (/MT), thus removing the requirement that the target machine
 have the matching version of the Microsoft C Redistributable installed.
-
-## Test and Validation
-
-This code repository contains a representative set of test cases to validate
-the compiled software against.  The /test/ folder contains:
-
-* test-inputs.csv : A csv file containing inputs, locations, and expected
-path loss.  It also contains the name of the corresponding pfl file
-* /pfls/ : A directory containing pfls for the test cases
-
-The pfls were generated using the re-sampled terrain data that can be
-downloaded from here: [https://www.its.bldrdoc.gov/resources/radio-propagation-software/resampled-terrain-data/re-sampled-terrain-data.aspx](https://www.its.bldrdoc.gov/resources/radio-propagation-software/resampled-terrain-data/re-sampled-terrain-data.aspx)
 
 ## Legal
 [Please read the LICENSE.md file](LICENSE.md)
