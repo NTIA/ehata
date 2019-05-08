@@ -71,15 +71,11 @@ have the matching version of the Microsoft C++ Redistributable installed.
 
 ## References ##
 
-* Drocella, E., Richards, J., Sole, R., Najmy, F., Lundy, A., McKenna, P. "3.5 
-GHz Exclusion Zone Analyses and Methodology", [_NTIA Report 15-517_](https://www.its.bldrdoc.gov/publications/2805.aspx), June 2015.
+* Drocella, E., Richards, J., Sole, R., Najmy, F., Lundy, A., McKenna, P. "3.5 GHz Exclusion Zone Analyses and Methodology", [_NTIA Report 15-517_](https://www.its.bldrdoc.gov/publications/2805.aspx), June 2015.
 * Hata, M. "Empirical Formula for Propagation Loss in Land Mobile 
-Radio Services", _IEEE Transactions on Vehicular Technology_, Vol VT-29, Num 3.  
-Aug 1980.  pp 317-325.  DOI: 10.1109/T-VT.1980.23859
-* Okumura, Y., Ohmori, E., Kawano, T., Fukuda, K.  "Field Strength 
-and Its Variability in VHF and UHF Land-Mobile Radio Service", 
-_Review of the Electrical Communication Laboratory_, Vol. 16, Num 9-10. 
-Sept-Oct 1968. pp. 825-873.
+Radio Services", _IEEE Transactions on Vehicular Technology_, Vol VT-29, Num 3. Aug 1980.  pp 317-325.  DOI: 10.1109/T-VT.1980.23859
+* Okumura, Y., Ohmori, E., Kawano, T., Fukuda, K.  "Field Strength and Its Variability in VHF and UHF Land-Mobile Radio Service", 
+_Review of the Electrical Communication Laboratory_, Vol. 16, Num 9-10. Sept-Oct 1968. pp. 825-873.
 
 ## Contact ##
 For questions, contact Paul McKenna, (303) 497-3474, pmckenna@ntia.gov
