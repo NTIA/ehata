@@ -57,7 +57,7 @@ denotes a subscript (pseudo-LaTeX format), where a double underscore is followed
 by the units, i.e. h_m__meter.
 * Variables are named to match their corresponding mathematical variables 
 in the underlying technical references, i.e., gamma_1.
-* Most values are calculated and stored in the **InterValues** data structure
+* Most values are calculated and stored in `intervalues`
 that is passed between function calls.  In general, only the correction factor
 functions return their result as a value.
 
