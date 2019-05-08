@@ -62,6 +62,14 @@ in the underlying technical references, i.e., gamma_1.
 that is passed between function calls.  In general, only the correction factor
 functions return their result as a value.
 
+## Configure and Build ##
+
+This project was developed and built using Microsoft Visual Studio
+2015, using the Visual Studio 2015 (v140) C++ compiler.  By default, the
+project file is configured to build with Runtime Library set to 
+Multi-threaded (/MT), thus removing the requirement that the target machine
+have the matching version of the Microsoft C++ Redistributable installed.
+
 ## References ##
 
 * [Okumura, 1968] Okumura, Y., Ohmori, E., Kawano, T., Fukuda, K.  "Field Strength 
@@ -74,14 +82,6 @@ Aug 1980.  pp 317-325.  DOI: 10.1109/T-VT.1980.23859
 * [[TR-15-517](https://www.its.bldrdoc.gov/publications/2805.aspx)] Drocella, 
 E., Richards, J., Sole, R., Najmy, F., Lundy, A., McKenna, P. "3.5 
 GHz Exclusion Zone Analyses and Methodology", _NTIA Report 15-517_, June 2015.
-
-## Configure and Build ##
-
-This project was developed and built using Microsoft Visual Studio
-2015, using the Visual Studio 2015 (v140) C compiler.  By default, the
-project file is configured to build with Runtime Library set to 
-Multi-threaded (/MT), thus removing the requirement that the target machine
-have the matching version of the Microsoft C Redistributable installed.
 
 ## Contact ##
 For questions, contact Paul McKenna, (303) 497-3474, pmckenna@ntia.gov
