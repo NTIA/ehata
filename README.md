@@ -1,10 +1,9 @@
 # The Extended Hata (eHata) Urban Propagation Model #
 
-This code repository contains a C language reference version of the eHata 
+This code repository contains a C++ reference version of the eHata 
 urban propagation model.  The model was developed by NTIA and used in NTIA 
 Technical Report [TR-15-517](https://www.its.bldrdoc.gov/publications/2805.aspx), 
-"3.5 GHz Exclusion Zone Analyses and Methodology," June 2015 
-[TR-15-517] for the 3.5 GHz exclusion zone analysis.
+"3.5 GHz Exclusion Zone Analyses and Methodology".
 
 ## Inputs ##
 
@@ -84,5 +83,5 @@ project file is configured to build with Runtime Library set to
 Multi-threaded (/MT), thus removing the requirement that the target machine
 have the matching version of the Microsoft C Redistributable installed.
 
-# Contact #
+## Contact ##
 For questions, contact Paul McKenna, (303) 497-3474, pmckenna@ntia.gov
