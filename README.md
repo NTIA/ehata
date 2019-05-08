@@ -25,8 +25,7 @@ Technical Report [TR-15-517](https://www.its.bldrdoc.gov/publications/2805.aspx)
 
 ## Intermediate Values ##
 
-When calling the ExtendedHata_DBG() function, the function will populate the 
-**InterValues** data structure with intermediate values from the eHata 
+When calling the ExtendedHata_DBG() function, the function will populate `intervalues` with intermediate values from the eHata 
 calculations.  Those values are as follows:
 
 | Variable         | Type      | Units       | Description |
