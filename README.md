@@ -1,99 +1,81 @@
-# The Extended Hata (eHata) Urban Propagation Model
+# The Extended Hata (eHata) Urban Propagation Model #
 
-## Description
-
-This source repository contains a C language reference version of the eHata 
+This code repository contains a C++ reference version of the eHata 
 urban propagation model.  The model was developed by NTIA and used in NTIA 
 Technical Report [TR-15-517](https://www.its.bldrdoc.gov/publications/2805.aspx), 
-"3.5 GHz Exclusion Zone Analyses and Methodology," June 2015 
-[TR-15-517] for the 3.5 GHz exclusion zone analysis.
+"3.5 GHz Exclusion Zone Analyses and Methodology".
 
-### Input Parameters
+## Inputs ##
 
-* **float** pfl[] : A terrain profile line, from the mobile to the base station.  EHata uses the ITM-method of formatting
-terrain information, in that:
-  * **float** pfl[0] : Number of points + 1
-  * **float** pfl[1] : Resolution, in meters
-  * **float** pfl[i] : Elevation above sea level, in meters
-* **float** f__mhz : The frequency, in MHz
-* **float** h_m__meter : The height of the mobile, in meters.
-* **float** h_b__meter : The height of the base station, in meters.
-* **int** enviro_code : The NLCD environment code
-* **float** reliability : The quantile percent not exceeded of the signal, range (0, 1)
+| Variable      | Type     | Units | Description |
+|---------------|----------|-------|-------------|
+| `pfl`         | double[] |       | A terrain profile line, from the mobile to the base station.  EHata uses the ITM-method of formatting terrain information, in that: <ul><li>`pfl[0]` : Number of elevation points + 1</li><li>`pfl[1]` : Resolution, in meters</li><li>`pfl[i]` : Elevation above sea level, in meters</li></ul> |
+| `f__mhz`      | double   | MHz   | Frequency   |
+| `h_m__meter`  | double   | meter | The height of the mobile |
+| `h_b__meter`  | double   | meter | The height of the base station |
+| `enviro_code` | int      |       | The NLCD environment code |
+| `reliability` | double   |       | The quantile percent not exceeded of the signal.  Limits: 0 < `reliability` < 1  |
 
-### Output Parameters
-* **float** plb: The path loss, in dB.
-* **InterValues** intervalues : [Optional] A data structure containing intermediate 
-values from the eHata calculations.
+## Outputs ##
 
-### Function Signatures
-* **void** ExtendedHata(**float** pfl[], **float** f__mhz, **float** h_b__meter, 
-**float** h_m__meter, **int** enviro_code, **float** reliability, **float** *plb)
-* **void** ExtendedHata_DBG(**float** pfl[], **float** f__mhz, **float** h_b__meter, 
-**float** h_m__meter, **int** enviro_code, **float** reliability, **float** *plb, 
-**InterValues** *interValues)
+| Variable      | Type   | Units | Description |
+|---------------|--------|-------|-------------|
+| `plb`         | double | dB    | Path loss   |
+| `intervalues` | struct |       | [Optional] A data structure containing intermediate values from the eHata calculations |
 
-### Dependencies
+## Intermediate Values ##
 
-The eHata reference implementation is only dependent on the math.lib library.
-
-### Intermediate Values
-When calling the ExtendedHata_DBG() function, the function will populate the 
-**InterValues** data structure with intermediate values from the eHata 
+When calling the _ExtendedHata_DBG()_ function, the function will populate `intervalues` with intermediate values from the eHata 
 calculations.  Those values are as follows:
 
-* **float** d_bp__km: The breakpoint distance, in km.
-* **float** att_1km: Attenuation at 1 km.
-* **float** att_100km: Attenuation at 100 km.
-* **float** h_b_eff__meter: Effective height of the base station, in meters.
-* **float** h_m_eff__meter: Effective height of the mobile, in meters.
-* **float** pfl10__meter: 10% terrain quantile, in meters.
-* **float** pfl50__meter: 50% terrain quantile, in meters.
-* **float** pfl90__meter: 90% terrain quantile, in meters.
-* **float** deltah__meter: Terrain irregularity parameter.
-* **float** d__km: Total path distance, in km.
-* **float** d_hzn__meter[2]: Horizon distances, in meters.
-* **float** h_avg__meter[2]: Average heights, in meters.
-* **float** theta_m__mrad: Slope of the terrain at the at the mobile, in millirads
-* **float** beta: Percentage of path that is sea.
-* **int** iend_ov_sea: Flag specifying which end is over the sea.
-* **float** hedge_tilda: Horizon correction factor.
-* **bool** single_horizon: Flag for specifying number of horizons.
-* **float** slope_max: Intermediate value when calculating the mobile terrain slope.
-* **float** slope_min: Intermediate value when calculating the mobile terrain slope.
+| Variable         | Type      | Units       | Description |
+|------------------|-----------|-------------|-------------|
+| `d_bp__km`       | double    | km          | The breakpoint distance |
+| `att_1km`        | double    | dB          | Attenuation at 1 km |
+| `att_100km`      | double    | dB          | Attenuation at 100 km |
+| `h_b_eff__meter` | double    | meter       | Effective height of the base station |
+| `h_m_eff__meter` | double    | meter       | Effective height of the mobile |
+| `pfl10__meter`   | double    | meter       | 10% terrain quantile |
+| `pfl50__meter`   | double    | meter       | 50% terrain quantile |
+| `pfl90__meter`   | double    | meter       | 90% terrain quantile |
+| `deltah__meter`  | double    | meter       | Terrain irregularity parameter |
+| `d__km`          | double    | km          | Path distance |
+| `d_hzn__meter`   | double[2] | meter       | Horizon distances |
+| `h_avg__meter`   | double[2] | meter       | Average heights |
+| `theta_m__mrad`  | double    | milliradian | Slope of the terrain at the at the mobile |
+| `beta`           | double    |             | Percentage of path that is sea |
+| `iend_ov_sea`    | int       |             | Flag specifying which end is over the sea |
+| `hedge_tilda`    | double    | meter       | Horizon correction factor |
+| `single_horizon` | bool      |             | Flag for specifying number of horizons |
+| `slope_max`      | double    | milliradian | Intermediate value when calculating the mobile terrain slope |
+| `slope_min`      | double    | milliradian | Intermediate value when calculating the mobile terrain slope |
 
-### Notes on Code Style
+## Notes on Code Style ##
 
 * In general, variables follow the naming convention in which a single underscore
 denotes a subscript (pseudo-LaTeX format), where a double underscore is followed
-by the units, i.e. h_m__meter.
+by the units, i.e. `h_m__meter`.
 * Variables are named to match their corresponding mathematical variables 
-in the underlying technical references, i.e., gamma_1.
-* Most values are calculated and stored in the **InterValues** data structure
+in the underlying technical references, i.e., `gamma_1`.
+* Most values are calculated and stored in `intervalues`
 that is passed between function calls.  In general, only the correction factor
 functions return their result as a value.
 
-## References
-
-* [Okumura, 1968] Okumura, Y., Ohmori, E., Kawano, T., Fukuda, K.  "Field Strength 
-and Its Variability in VHF and UHF Land-Mobile Radio Service", 
-_Review of the Electrical Communication Laboratory_, Vol. 16, Num 9-10. 
-Sept-Oct 1968. pp. 825-873.
-* [Hata, 1980] Hata, M. "Empirical Formula for Propagation Loss in Land Mobile 
-Radio Services", _IEEE Transactions on Vehicular Technology_, Vol VT-29, Num 3.  
-Aug 1980.  pp 317-325.  DOI: 10.1109/T-VT.1980.23859
-* [TR-15-517](https://www.its.bldrdoc.gov/publications/2805.aspx) Drocella, 
-E., Richards, J., Sole, R., Najmy, F., Lundy, A., McKenna, P. "3.5 
-GHz Exclusion Zone Analyses and Methodology", _NTIA Report 15-517_, June 2015.
-
-## Configuring and Building
+## Configure and Build ##
 
 This project was developed and built using Microsoft Visual Studio
-2015, using the Visual Studio 2015 (v140) C compiler.  By default, the
+2015, using the Visual Studio 2015 (v140) C++ compiler.  By default, the
 project file is configured to build with Runtime Library set to 
 Multi-threaded (/MT), thus removing the requirement that the target machine
-have the matching version of the Microsoft C Redistributable installed.
+have the matching version of the Microsoft C++ Redistributable installed.
 
-## Legal
-[Please read the LICENSE.md file](LICENSE.md)
+## References ##
 
+* Drocella, E., Richards, J., Sole, R., Najmy, F., Lundy, A., McKenna, P. "3.5 GHz Exclusion Zone Analyses and Methodology", [_NTIA Report 15-517_](https://www.its.bldrdoc.gov/publications/2805.aspx), June 2015.
+* Hata, M. "Empirical Formula for Propagation Loss in Land Mobile 
+Radio Services", _IEEE Transactions on Vehicular Technology_, Vol VT-29, Num 3. Aug 1980.  pp 317-325.  DOI: 10.1109/T-VT.1980.23859
+* Okumura, Y., Ohmori, E., Kawano, T., Fukuda, K.  "Field Strength and Its Variability in VHF and UHF Land-Mobile Radio Service", 
+_Review of the Electrical Communication Laboratory_, Vol. 16, Num 9-10. Sept-Oct 1968. pp. 825-873.
+
+## Contact ##
+For questions, contact Paul McKenna, (303) 497-3474, pmckenna@ntia.gov
