@@ -9,7 +9,7 @@ Technical Report [TR-15-517](https://www.its.bldrdoc.gov/publications/2805.aspx)
 
 | Variable      | Type     | Units | Description |
 |---------------|----------|-------|-------------|
-| `pfl`         | double[] |       | A terrain profile line, from the mobile to the base station.  EHata uses the ITM-method of formatting terrain information, in that: <ul><li>`pfl[0]` : Number of elevation points + 1</li><li>`pfl[1]` : Resolution, in meters</li><li>`pfl[i]` : Elevation above sea level, in meters</li></ul> |
+| `pfl`         | double[] |       | A terrain profile line, from the mobile to the base station.  EHata uses the ITM-method of formatting terrain information, in that: <ul><li>`pfl[0]` : Number of elevation points - 1</li><li>`pfl[1]` : Resolution, in meters</li><li>`pfl[i]` : Elevation above sea level, in meters</li></ul> |
 | `f__mhz`      | double   | MHz   | Frequency   |
 | `h_m__meter`  | double   | meter | The height of the mobile |
 | `h_b__meter`  | double   | meter | The height of the base station |

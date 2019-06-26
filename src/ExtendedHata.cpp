@@ -4,7 +4,7 @@
 *   Description: The Extended-Hata Urban Propagation Model
 *   Inputs:
 *       pfl : Terrain profile line with:
-*                - pfl[0] = number of terrain points + 1
+*                - pfl[0] = number of terrain points - 1
 *                - pfl[1] = step size, in meters
 *                - pfl[i] = elevation above mean sea level, in meters
 *       f__mhz : frequency, in MHz
@@ -26,7 +26,7 @@ void ExtendedHata(double pfl[], double f__mhz, double h_b__meter, double h_m__me
 *   Description: The Extended-Hata Urban Propagation Model
 *   Inputs:
 *       pfl : Terrain profile line with:
-*                - pfl[0] = number of terrain points + 1
+*                - pfl[0] = number of terrain points - 1
 *                - pfl[1] = step size, in meters
 *                - pfl[i] = elevation above mean sea level, in meters
 *       f__mhz : frequency, in MHz

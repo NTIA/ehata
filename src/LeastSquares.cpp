@@ -5,7 +5,7 @@
 *   Description: Least squares fit
 *   Inputs:
 *       pfl_segment : Terrain profile line with:
-*                - pfl_segment[0] = number of terrain points + 1
+*                - pfl_segment[0] = number of terrain points - 1
 *                - pfl_segment[1] = step size, in meters
 *                - pfl_segment[i] = elevation above mean sea level, in meters
 */

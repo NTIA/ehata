@@ -18,7 +18,7 @@ void PreprocessTerrainPath(double *pfl, double h_b__meter, double h_m__meter, In
 *   Description: Find the average ground height at each terminal and set the effective terminal heights
 *   Inputs:
 *       pfl : Terrain profile line with:
-*                - pfl[0] = number of terrain points + 1
+*                - pfl[0] = number of terrain points - 1
 *                - pfl[1] = step size, in meters
 *                - pfl[i] = elevation above mean sea level, in meters
 *       h_m__meter : height of the mobile, in meters
@@ -91,7 +91,7 @@ void FindAverageGroundHeight(double *pfl, double h_m__meter, double h_b__meter, 
 *                irregularity parameter, deltaH
 *   Inputs:
 *       pfl : Terrain profile line with:
-*                - pfl[0] = number of terrain points + 1
+*                - pfl[0] = number of terrain points - 1
 *                - pfl[1] = step size, in meters
 *                - pfl[i] = elevation above mean sea level, in meters
 *   Outputs:
@@ -156,7 +156,7 @@ void ComputeTerrainStatistics(double *pfl, InterValues *interValues)
 *   Description: Find the slope of the terrain at the mobile
 *   Inputs:
 *       pfl : Terrain profile line with:
-*                - pfl[0] = number of terrain points + 1
+*                - pfl[0] = number of terrain points - 1
 *                - pfl[1] = step size, in meters
 *                - pfl[i] = elevation above mean sea level, in meters
 *   Outputs:
@@ -222,7 +222,7 @@ void MobileTerrainSlope(double *pfl, InterValues *interValues)
 *   Description: Compute the sea details of the path
 *   Inputs:
 *       pfl : Terrain profile line with:
-*                - pfl[0] = number of terrain points + 1
+*                - pfl[0] = number of terrain points - 1
 *                - pfl[1] = step size, in meters
 *                - pfl[i] = elevation above mean sea level, in meters
 *   Outputs:
@@ -269,7 +269,7 @@ void AnalyzeSeaPath(double* pfl, InterValues *interValues)
 *   Description: Compute the average height of the terrain pfl
 *   Inputs:
 *       pfl : Terrain profile line with:
-*                - pfl[0] = number of terrain points + 1
+*                - pfl[0] = number of terrain points - 1
 *                - pfl[1] = step size, in meters
 *                - pfl[i] = elevation above mean sea level, in meters
 *   Return:
@@ -291,7 +291,7 @@ double AverageTerrainHeight(double *pfl)
 *   Description: Determine the horizon details
 *   Inputs:
 *       pfl : Terrain profile line with:
-*                - pfl[0] = number of terrain points + 1
+*                - pfl[0] = number of terrain points - 1
 *                - pfl[1] = step size, in meters
 *                - pfl[i] = elevation above mean sea level, in meters
 *       h_m__meter : height of the mobile, in meters
