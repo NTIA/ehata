@@ -44,6 +44,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="EHata.cs" />
+    <Compile Include="Enums.cs" />
     <Compile Include="IntermediateValues.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
