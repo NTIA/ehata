@@ -13,6 +13,9 @@
     <releaseNotes>None</releaseNotes>
     <tags>Propagation EHata</tags>
     <repository type="git" url="https://github.com/NTIA/ehata.git" branch="master"/>
+    <dependencies>
+      <group targetFramework=".NETFramework4.7.2" />
+    </dependencies>
   </metadata>
   <files>
     <file src="..\..\LICENSE.md" target=""/>

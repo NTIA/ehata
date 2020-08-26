@@ -63,11 +63,13 @@ functions return their result as a value.
 
 ## Configure and Build ##
 
-This project was developed and built using Microsoft Visual Studio
-2015, using the Visual Studio 2015 (v140) C++ compiler.  By default, the
-project file is configured to build with Runtime Library set to 
-Multi-threaded (/MT), thus removing the requirement that the target machine
-have the matching version of the Microsoft C++ Redistributable installed.
+###C++ Software
+
+The software is designed to be built into a DLL (or corresponding library for non-Windows systems). The source code can be built for any OS that supports the standard C++ libraries. A Visual Studio 2019 project file is provided for Windows users to support the build process and configuration.
+
+### C#/.NET Wrapper Software
+
+The .NET support of eHata consists of a simple pass-through wrapper around the native DLL.  It is compiled to target .NET Framework 4.7.2.  Distribution and updates are provided through the published NuGet package.
 
 ## References ##
 
