@@ -1,6 +1,6 @@
 //{{NO_DEPENDENCIES}}
 // Microsoft Visual C++ generated include file.
-// Used by AssemblyInfo.rc
+// Used by ehata.rc
 
 // Next default values for new objects
 // 

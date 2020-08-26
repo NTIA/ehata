@@ -28,8 +28,6 @@ void PreprocessTerrainPath(double *pfl, double h_b__meter, double h_m__meter, In
 *               above sea level, in meters
 *                - h_avg__meter[0] = terminal at start of pfl
 *                - h_avg__meter[1] = terminal at end of pfl
-*       interValues->trace_code : Debug trace flag to document code
-*               execution path for tracing and testing purposes
 */
 void FindAverageGroundHeight(double *pfl, double h_m__meter, double h_b__meter, InterValues *interValues)
 {
@@ -99,8 +97,6 @@ void FindAverageGroundHeight(double *pfl, double h_m__meter, double h_b__meter, 
 *       interValues->pfl50__meter : 50% terrain quantile
 *       interValues->pfl90__meter : 90% terrain quantile
 *       interValues->deltah__meter : terrain irregularity parameter
-*       interValues->trace_code : debug trace flag to document code
-*               execution path for tracing and testing purposes
 */
 void ComputeTerrainStatistics(double *pfl, InterValues *interValues)
 {
@@ -163,8 +159,6 @@ void ComputeTerrainStatistics(double *pfl, InterValues *interValues)
 *       interValues->slope_max : intermediate value
 *       interValues->slope_min : intermediate value
 *       interValues->theta_m__mrad : mobile terrain slope, in millirads
-*       interValues->trace_code : debug trace flag to document code
-*               execution path for tracing and testing purposes
 */
 void MobileTerrainSlope(double *pfl, InterValues *interValues)
 {
@@ -302,8 +296,6 @@ double AverageTerrainHeight(double *pfl)
 *                - d_hzn__meter[1] = base station horizon distance, in meters
 *       interValues->single_horizon : horizon flag
 *       interValues->hedge_tilda : correction factor
-*       interValues->trace_code : debug trace flag to document code
-*               execution path for tracing and testing purposes
 */
 void SingleHorizonTest(double *pfl, double h_m__meter, double h_b__meter, InterValues *interValues)
 {

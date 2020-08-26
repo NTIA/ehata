@@ -1,0 +1,27 @@
+<?xml version="1.0"?>
+<package >
+  <metadata>
+    <id>ExtendedHata</id>
+    <version>3.1.0</version>
+    <authors>The Institute for Telecommunication Sciences</authors>
+    <owners>The Institute for Telecommunication Sciences</owners>
+    <license type="file">LICENSE.md</license>
+    <projectUrl>https://github.com/NTIA/ehata</projectUrl>
+    <icon>images\itslogo.png</icon>
+    <requireLicenseAcceptance>true</requireLicenseAcceptance>
+    <description>The Extended Hata Urban Propagation Model</description>
+    <releaseNotes>None</releaseNotes>
+    <tags>Propagation EHata</tags>
+    <repository type="git" url="https://github.com/NTIA/ehata.git" branch="master"/>
+  </metadata>
+  <files>
+    <file src="..\..\LICENSE.md" target=""/>
+    <file src="build\native\ehata_x64.dll" target="build\native\ehata_x64.dll"/>
+    <file src="build\native\ehata_x86.dll" target="build\native\ehata_x86.dll"/>
+    <file src="build\net472\ExtendedHata.targets" target="build\net472\ExtendedHata.targets"/>
+    <file src="lib\net472\ITS.Propagation.EHata.dll" target="lib\net472\ITS.Propagation.EHata.dll"/>
+    <file src="lib\net472\ITS.Propagation.EHata.pdb" target="lib\net472\ITS.Propagation.EHata.pdb"/>
+    <file src="lib\net472\ITS.Propagation.EHata.xml" target="lib\net472\ITS.Propagation.EHata.xml"/>
+    <file src="images\itslogo.png" target="images\itslogo.png"/>
+  </files>
+</package>

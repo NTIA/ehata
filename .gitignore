@@ -37,12 +37,7 @@ $RECYCLE.BIN/
 *genmod.mod
 BuildLog.htm
 *.ipch
-bin/*
-win32/ehata/*.aps
-win32/ehata/Debug/*
-win32/ehata/Release/*
-win32/ehata/x64/*
-build/Debug/*
-win32/BVT/obj/*
-win32/packages/*
-win32/NTIA.Propagation.EHata/obj/*
+/**/.vs
+*.aps
+/**/Debug
+/**/Release
