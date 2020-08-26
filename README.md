@@ -63,7 +63,7 @@ functions return their result as a value.
 
 ## Configure and Build ##
 
-###C++ Software
+### C++ Software
 
 The software is designed to be built into a DLL (or corresponding library for non-Windows systems). The source code can be built for any OS that supports the standard C++ libraries. A Visual Studio 2019 project file is provided for Windows users to support the build process and configuration.
 
