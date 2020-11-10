@@ -15,3 +15,15 @@ file(GLOB SOURCES "src/*.cpp")
 
 # Shared Library
 add_library(ehata SHARED ${SOURCES})
+
+install(
+    TARGETS ehata
+    LIBRARY DESTINATION "lib${LIB_SUFFIX}"
+    COMPONENT ehata
+)
+
+install(
+    FILES "${CMAKE_CURRENT_SOURCE_DIR}/include/ehata.h"
+    DESTINATION "include/ehata"
+    COMPONENT ehata-dev
+)
