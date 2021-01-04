@@ -36,5 +36,9 @@ double IsolatedRidgeCorrectionFactor(double d1_hzn__km, double d2_hzn__km, doubl
     double c1 = curve_data[id1][id2] + (curve_data[id1][id2 + 1] - curve_data[id1][id2]) * (d2_hzn__km - d_2__km[id2]) / (d_2__km[id2 + 1] - d_2__km[id2]);
     double c2 = curve_data[id1 + 1][id2] + (curve_data[id1 + 1][id2 + 1] - curve_data[id1 + 1][id2]) * (d2_hzn__km - d_2__km[id2]) / (d_2__km[id2 + 1] - d_2__km[id2]);
 
-    return alpha * (c1 + (c2 - c1) * (d1_hzn__km - d_1__km[id1]) / (d_1__km[id1 + 1] - d_1__km[id1]));
+    // Isolated ridge correction factor (although sign is negative, ie, inverted)
+    double L_iso__db = alpha * (c1 + (c2 - c1) * MAX(0, (d1_hzn__km - d_1__km[id1])) / (d_1__km[id1 + 1] - d_1__km[id1]));
+
+    // Clamp so the value doesn't result in a gain
+    return MIN(L_iso__db, 0);
 }
