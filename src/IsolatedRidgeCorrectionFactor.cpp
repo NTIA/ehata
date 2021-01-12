@@ -33,7 +33,7 @@ double IsolatedRidgeCorrectionFactor(double d1_hzn__km, double d2_hzn__km, doubl
 
     // select the first d2 curve distance that is <= to actual path d2 distance
     int id2 = 0;
-    while (id2 < 8 && d2_hzn__km > d_2__km[id2 + 1])
+    while (id2 < 7 && d2_hzn__km > d_2__km[id2 + 1])
         id2 = id2 + 1;
 
     // c1 is value on "lower" curve in Figure 31, Okumura, relative to d1 - either curve B or C
