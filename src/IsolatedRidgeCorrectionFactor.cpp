@@ -24,6 +24,7 @@ double IsolatedRidgeCorrectionFactor(double d1_hzn__km, double d2_hzn__km, doubl
 
     // normalized ridge height factor
     // Eq 1, Okumura, alpha = 0.07 * sqrt(h)
+    //   Note: 0.07 is approx sqrt (1/ 200), with 200 being the normalization height
     double alpha = sqrt(h_edge__meter / 200.0);
 
     // identify the d1 curve set to use
