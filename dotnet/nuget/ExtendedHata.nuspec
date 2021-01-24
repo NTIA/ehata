@@ -2,7 +2,7 @@
 <package >
   <metadata>
     <id>ExtendedHata</id>
-    <version>3.1.0</version>
+    <version>3.2.0</version>
     <authors>The Institute for Telecommunication Sciences</authors>
     <owners>The Institute for Telecommunication Sciences</owners>
     <license type="file">LICENSE.md</license>

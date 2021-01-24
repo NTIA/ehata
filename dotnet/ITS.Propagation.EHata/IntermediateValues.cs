@@ -10,7 +10,7 @@ namespace ITS.Propagation
         /// <summary>
         /// Intermediate values from EHata
         /// </summary>
-        public class IntermediateValues
+        public struct IntermediateValues
         {
             /// <summary>
             /// Breakpoint distance, in km
