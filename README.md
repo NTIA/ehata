@@ -80,4 +80,4 @@ Radio Services", _IEEE Transactions on Vehicular Technology_, Vol VT-29, Num 3. 
 _Review of the Electrical Communication Laboratory_, Vol. 16, Num 9-10. Sept-Oct 1968. pp. 825-873.
 
 ## Contact ##
-For questions, contact Paul McKenna, (303) 497-3474, pmckenna@ntia.gov
+For questions, contact Paul McKenna, pmckenna@ntia.gov
